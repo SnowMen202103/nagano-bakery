@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoBakery</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,23 @@
   </head>
 
   <body>
+    
+   <header>
+       <h3>
+          <a href="/"><img src="/assets/nagano.png"></a>
+       </h3>
+       <nav>
+          <ul>
+             <li class="nav"><a href="#">About</a></li>
+             <li class="nav"><a href="#">商品一覧</a></li>
+             <li class="nav"><a href="#">新規登録</a></li>
+             <li class="nav"><a href="#">ログイン</a></li>
+          </ul>
+       </nav>
+    </header>
+    
+    <div class="yield">
     <%= yield %>
+    </div>
   </body>
 </html>
