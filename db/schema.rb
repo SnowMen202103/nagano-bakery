@@ -11,6 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 20210313080712) do
+
 ActiveRecord::Schema.define(version: 20210313080820) do
 
   create_table "carts", force: :cascade do |t|
@@ -83,6 +85,14 @@ ActiveRecord::Schema.define(version: 20210313080806) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "family_name"
+    t.string   "given_name"
+    t.string   "ruby_family_name"
+    t.string   "ruby_given_name"
+    t.integer  "customer_postal_code"
+    t.string   "customer_address"
+    t.integer  "tel"
+    t.string   "customer_status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
