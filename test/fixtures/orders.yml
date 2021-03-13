@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  order_day: 2021-03-13 08:08:20
+  order_status: MyString
+  pay_way: MyString
+  postage: 1
+  total_price: 1
+  delivery_address: MyString
+  delivery_postal_code: 1
+  address_name: MyString
+
+two:
+  user_id: 1
+  order_day: 2021-03-13 08:08:20
+  order_status: MyString
+  pay_way: MyString
+  postage: 1
+  total_price: 1
+  delivery_address: MyString
+  delivery_postal_code: 1
+  address_name: MyString
