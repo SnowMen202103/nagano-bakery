@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  get 'carts/index'
+
+  get 'sweets/index'
+
+  get 'sweets/show'
+
+  get 'sweets/new'
+
+  get 'sweets/edit'
+
   get 'order_details/index'
 
   get 'order_details/show'
