@@ -10,7 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20210313080712) do
+
+ActiveRecord::Schema.define(version: 20210313080820) do
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "sweet_id"
+    t.integer  "cart_number"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "order_day"
+    t.string   "order_status"
+    t.string   "pay_way"
+    t.integer  "postage"
+    t.integer  "total_price"
+    t.string   "delivery_address"
+    t.integer  "delivery_postal_code"
+
+ActiveRecord::Schema.define(version: 20210313080806) do
+
+  create_table "deliveries", force: :cascade do |t|
+    t.integer  "delivery_postal_code"
+    t.string   "delivery_address"
+
+    t.string   "address_name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+
+  create_table "sweets", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.string   "sweet_name"
+    t.text     "content"
+    t.string   "image"
+    t.string   "sell_status"
+    t.integer  "no_tax_price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "genre_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string   "manager_email"
+    t.string   "manager_password"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "in_tax_price"
+    t.integer  "sweet_number"
+    t.string   "making_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

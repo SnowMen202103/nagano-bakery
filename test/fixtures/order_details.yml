@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_tax_price: 1
+  sweet_number: 1
+  making_status: MyString
+
+two:
+  in_tax_price: 1
+  sweet_number: 1
+  making_status: MyString
