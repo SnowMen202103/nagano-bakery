@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210313080820) do
+ActiveRecord::Schema.define(version: 20210313133018) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20210313080820) do
     t.string   "ruby_given_name"
     t.integer  "customer_postal_code"
     t.string   "customer_address"
-    t.integer  "tel"
     t.string   "customer_status"
+    t.string   "tel"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
