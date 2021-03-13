@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'searches/search'
+
+  get 'deliverys/index'
+
+  get 'deliverys/edit'
+
+  get 'deliverys/update'
+
+  get 'deliverys/destroy'
+
+  get 'genres/index'
+
+  get 'genres/edit'
+
+  get 'genres/update'
+
+  get 'genres/destroy'
+
   get 'carts/index'
 
   get 'sweets/index'
