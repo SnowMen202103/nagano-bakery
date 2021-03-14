@@ -19,6 +19,10 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @customer = Customer.find(params[:customer_id])
+    address = Address.find(params[:id])
+    address.destroy
+    redirect_to request.referer
   end
   
   private
