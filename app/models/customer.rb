@@ -4,11 +4,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  validates :family_name , presence: true
-  validates :given_name , presence: true
-  validates :ruby_family_name , presence: true
-  validates :ruby_given_name , presence: true
+  validates :last_name , presence: true
+  validates :first_name , presence: true
+  validates :ruby_last_name , presence: true
+  validates :ruby_first_name , presence: true
   validates :postal_code , presence: true
   validates :address , presence: true
-  validates :tel, presence: true
+  validates :phone_number, presence: true
 end
