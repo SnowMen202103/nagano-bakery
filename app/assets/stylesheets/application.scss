@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
 
 // リセットCSS
 * {
@@ -44,7 +45,6 @@ h1 {
 }
 
 .nav {
-   text-decoration: none;
    color: #993300;
 }
 

@@ -17,32 +17,32 @@
        <nav>
           <ul>
             <% if customer_signed_in? %>
-              <!--<li>ようこそ、<= user.name %>さん！</li>-->
+              <!--<li>ようこそ、<= customer.name %>さん！</li>-->
             <% end %>
             <% if customer_signed_in? %>
-              <%= link_to "#", class: "nav" do %>
-               <li class="nav">マイページ</li>
+              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+               <li class="nav text-center">マイページ</li>
               <% end %>
             <% else %>
-              <%= link_to "#", class: "nav" do %>
-               <li class="nav">About</li>
+              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+               <li class="nav text-center">About</li>
               <% end %>
             <% end %>
-            <%= link_to sweets_index_path, class: "nav" do %>
-             <li class="nav">商品一覧</li>
+            <%= link_to sweets_index_path, class: "nav text-decoration-none text-center" do %>
+             <li class="nav text-center">商品一覧</li>
             <% end %>
             <% if customer_signed_in? %>
-              <%= link_to "#", class: "nav" do %>
+              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
                <li class="nav">カート</li>
               <% end %>
-              <%= link_to "/", class: "nav" do %>
+              <%= link_to "/", class: "nav text-decoration-none text-center" do %>
                <li class="nav">ログアウト</li>
               <% end %>
             <% else %>
-              <%= link_to new_customer_registration_path, class: "nav" do %>
+              <%= link_to new_customer_registration_path, class: "nav text-decoration-none text-center" do %>
                <li class="nav">新規登録</li>
               <% end %>
-              <%= link_to new_customer_session_path, class: "nav" do %>
+              <%= link_to new_customer_session_path, class: "nav text-decoration-none text-center" do %>
                <li class="nav">ログイン</li>
               <% end %>
             <% end %>
