@@ -1,49 +1,57 @@
-<h3>マイページ</h3>
-<div>
-    <h3>登録情報</h3>
-    <!--リンク先を設定-->
-    <%= link_to '編集する' %>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>マイページ</h3>
+            <tr>
+                <td>登録情報</td>
+                <td><%= link_to "編集する", edit_customer_path, class: "btn btn-success btn-sm my-4" %></td>
+            </tr>
+            
+            <div>
+                <table border = "1", style = "border-collapse: collapse">
+                    <colgroup style="background:purple">
 
-<div>
-    <table border = "1", style = "border-collapse: collapse">
-        <!--each文記載(インスタンス変数はcontrollers/customersに設定すること!)-->
-        <tr>
-            <td>氏名</td>
-            <td>customerの名前(family_name + given_name)</td>
-        </tr>
-        <tr>
-            <td>カナ</td>
-            <td>customerのカナ(ruby_family_name + ruby_given_name)</td>
-        </tr>
-        <tr>
-            <td>郵便番号</td>
-            <td>customerのpostal_code</td>
-        </tr>
-        <tr>
-            <td>住所</td>
-            <td>customerのaddress</td>
-        </tr>
-        <tr>
-            <td>電話番号</td>
-            <td>customerのtel</td>
-        </tr>
-        <tr>
-            <td>メールアドレス</td>
-            <td>customerのemail</td>
-        </tr>
-        <!--each文ここまで-->
-    </table>
-</div>
-
-<div>
-    <h3>配送先</h3>
-    <!--リンク先を設定-->
-    <%= link_to '一覧を見る' %>
-</div>
-
-<div>
-    <h3>注文履歴</h3>
-    <!--リンク先を設定-->
-    <%= link_to '一覧を見る' %>
+                    <!--each文記載(インスタンス変数はcontrollers/customersに設定すること!)-->
+                    <tr>
+                        <td>氏名</td>
+                        <td><%= @customer.last_name + " " + @customer.first_name %></td>
+                    </tr>
+                    <tr>
+                        <td>カナ</td>
+                        <td><%= @customer.ruby_last_name + " " + @customer.ruby_first_name %></td>
+                    </tr>
+                    <tr>
+                        <td>郵便番号</td>
+                        <td><%= @customer.postal_code %></td>
+                    </tr>
+                    <tr>
+                        <td>住所</td>
+                        <td><%= @customer.address %></td>
+                    </tr>
+                    <tr>
+                        <td>電話番号</td>
+                        <td><%= @customer.phone_number %></td>
+                    </tr>
+                    <tr>
+                        <td>メールアドレス</td>
+                        <td><%= @customer.email %></td>
+                    </tr>
+                    <!--each文ここまで-->
+                </table>
+            </div>
+            <div>
+                <tr>
+                    <td>配送先</td>
+                    <td><%= link_to "一覧を見る", customer_addresses_path(@customer), class: "btn btn-primary btn-sm my-4" %></td>
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>注文履歴</td>
+                    <!--リンク先未設定です-->
+                    <td><%= link_to "一覧を見る", "#", class: "btn btn-primary btn-sm" %></td>
+                </tr>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
   root 'homes#top'
   get 'homes/about'
 
@@ -8,10 +12,7 @@ Rails.application.routes.draw do
   end
   get 'customers/goodbye'
 
-  devise_for :customers, controllers: {
-    registrations: 'customers/registrations',
-    sessions: 'customers/sessions'
-  }
+
 
   resources :cart_items, only: [:index, :update, :destroy]
 
