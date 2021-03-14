@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'customers/show'
+
+  get 'customers/index'
+
+  get 'customers/edit'
+
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
   get 'searches/search'
 
   get 'deliverys/index'
@@ -36,12 +46,5 @@ Rails.application.routes.draw do
 
   get 'orders/show'
 
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/edit'
-
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

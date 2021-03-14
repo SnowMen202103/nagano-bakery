@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210313080820) do
+ActiveRecord::Schema.define(version: 20210314004527) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,6 +18,26 @@ ActiveRecord::Schema.define(version: 20210313080820) do
     t.integer  "cart_number"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "family_name"
+    t.string   "given_name"
+    t.string   "ruby_family_name"
+    t.string   "ruby_given_name"
+    t.integer  "postal_code"
+    t.string   "address"
+    t.string   "tel"
+    t.string   "status"
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -72,26 +92,6 @@ ActiveRecord::Schema.define(version: 20210313080820) do
     t.integer  "no_tax_price"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "family_name"
-    t.string   "given_name"
-    t.string   "ruby_family_name"
-    t.string   "ruby_given_name"
-    t.integer  "customer_postal_code"
-    t.string   "customer_address"
-    t.integer  "tel"
-    t.string   "customer_status"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
