@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'customers/index'
 
   get 'customers/edit'
+  
+  get 'customers/goodbye'
 
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
