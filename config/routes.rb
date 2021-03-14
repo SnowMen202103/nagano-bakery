@@ -1,57 +1,29 @@
 Rails.application.routes.draw do
 
-  get 'homes/top'
-
+  root 'homes#top'
   get 'homes/about'
 
-  get 'customers/show'
-
-  get 'customers/index'
-
-  get 'customers/edit'
-  
+  resources :customers, only: [:index, :show, :edit, :update] do
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+  end
   get 'customers/goodbye'
 
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
   }
-  get 'searches/search'
 
-  get 'deliverys/index'
+  resources :cart_items, only: [:index, :update, :destroy]
 
-  get 'deliverys/edit'
+  resources :items do
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+  end
 
-  get 'deliverys/update'
+  resources :order_details, only: [:index, :show, :update]
 
-  get 'deliverys/destroy'
-
-  get 'genres/index'
-
-  get 'genres/edit'
-
-  get 'genres/update'
-
-  get 'genres/destroy'
-
-  get 'carts/index'
-
-  get 'sweets/index'
-
-  get 'sweets/show'
-
-  get 'sweets/new'
-
-  get 'sweets/edit'
-
-  get 'order_details/index'
-
-  get 'order_details/show'
-
-  get 'orders/index'
-
-  get 'orders/show'
-
+  resources :orders, only: [:index, :show, :create, :update]
   get 'orders/thanks'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'searches/search'
 end
