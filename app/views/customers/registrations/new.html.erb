@@ -9,21 +9,21 @@
   <div>名前</div>
   <div class="field">
     <%= f.label :'(姓)' %>
-    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: '令和' %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: '令和' %>
   </div>
   <div class="field">
     <%= f.label :'(名)' %>
-    <%= f.text_field :given_name, autofocus: true, autocomplete: "given_name", placeholder: '道子' %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: '道子' %>
   </div>
   
   <div>フリガナ</div>
   <div class="field">
     <%= f.label :'(セイ)' %>
-    <%= f.text_field :ruby_family_name, autofocus: true, autocomplete: "ruby_family_name", placeholder: 'レイワ' %>
+    <%= f.text_field :ruby_last_name, autofocus: true, autocomplete: "ruby_last_name", placeholder: 'レイワ' %>
   </div>
   <div class="field">
     <%= f.label :'(メイ)' %>
-    <%= f.text_field :ruby_given_name, autofocus: true, autocomplete: "ruby_given_name", placeholder: 'ミチコ' %>
+    <%= f.text_field :ruby_first_name, autofocus: true, autocomplete: "ruby_first_name", placeholder: 'ミチコ' %>
   </div>
   
   <div class="field">
@@ -33,17 +33,17 @@
   
   <div class="field">
     <%= f.label :'郵便番号(ハイフンなし)' %>
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "customer_postal_code", placeholder: '0000000' %>
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: '0000000' %>
   </div>
   
   <div class="field">
     <%= f.label :'住所' %>
-    <%= f.text_field :address, autofocus: true, autocomplete: "customer_address", placeholder: '東京都渋谷区代々木神園町0-0' %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: '東京都渋谷区代々木神園町0-0' %>
   </div>
   
   <div class="field">
     <%= f.label :'電話番号(ハイフンなし)' %>
-    <%= f.text_field :tel, autofocus: true, autocomplete: "tel", placeholder: '0000000000' %>
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: '0000000000' %>
   </div>
 
   <div class="field">
