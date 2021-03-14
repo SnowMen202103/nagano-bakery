@@ -28,15 +28,17 @@
         <td></td>
     </tr>
     <!--each文使用-->
+    <% @addresses.each do |address| %>
     <tr>
-        <td>customerと関連するderiveryのdelivery_postal_code</td>
-        <td>customerと関連するderiveryのdelivery_address</td>
-        <td>customerと関連するderiveryのaddress_name</td>
+        <td><%= address.postal_code %></td>
+        <td><%= address.address %></td>
+        <td><%= address.name %></td>
         <td>
             <!--リンク先を設定-->
             <%= link_to '編集する' %>
             <%= link_to '削除する' %>
         </td>
     </tr>
+    <% end %>
     <!--each文ここまで-->
 </table>

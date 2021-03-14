@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
     @addresses = Address.all
     @address = Address.new
     @customer = Customer.find(params[:customer_id])
+    
   end
   
   def create
