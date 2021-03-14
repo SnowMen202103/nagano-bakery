@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoBakery</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,49 @@
   </head>
 
   <body>
+    
+   <header>
+       <h3>
+          <a href="/"><img src="/assets/nagano.png"></a>
+       </h3>
+       <nav>
+          <ul>
+            <% if user_signed_in? %>
+              <!--<li>ようこそ、<= user.name %>さん！</li>-->
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to "#", class: "nav" do %>
+               <li class="nav">マイページ</li>
+              <% end %>
+            <% else %>
+              <%= link_to "#", class: "nav" do %>
+               <li class="nav">About</li>
+              <% end %>
+            <% end %>
+            <%= link_to sweets_index_path, class: "nav" do %>
+             <li class="nav">商品一覧</li>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to "#", class: "nav" do %>
+               <li class="nav">カート</li>
+              <% end %>
+              <%= link_to "/", class: "nav" do %>
+               <li class="nav">ログアウト</li>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_registration_path, class: "nav" do %>
+               <li class="nav">新規登録</li>
+              <% end %>
+              <%= link_to new_user_session_path, class: "nav" do %>
+               <li class="nav">ログイン</li>
+              <% end %>
+            <% end %>
+          </ul>
+       </nav>
+    </header>
+    
+    <div class="yield">
     <%= yield %>
+    </div>
   </body>
 </html>
