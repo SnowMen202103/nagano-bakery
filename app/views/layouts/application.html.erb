@@ -16,10 +16,10 @@
        </h3>
        <nav>
           <ul>
-            <% if user_signed_in? %>
+            <% if customer_signed_in? %>
               <!--<li>ようこそ、<= user.name %>さん！</li>-->
             <% end %>
-            <% if user_signed_in? %>
+            <% if customer_signed_in? %>
               <%= link_to "#", class: "nav" do %>
                <li class="nav">マイページ</li>
               <% end %>
@@ -31,7 +31,7 @@
             <%= link_to sweets_index_path, class: "nav" do %>
              <li class="nav">商品一覧</li>
             <% end %>
-            <% if user_signed_in? %>
+            <% if customer_signed_in? %>
               <%= link_to "#", class: "nav" do %>
                <li class="nav">カート</li>
               <% end %>
@@ -39,10 +39,10 @@
                <li class="nav">ログアウト</li>
               <% end %>
             <% else %>
-              <%= link_to new_user_registration_path, class: "nav" do %>
+              <%= link_to new_customer_registration_path, class: "nav" do %>
                <li class="nav">新規登録</li>
               <% end %>
-              <%= link_to new_user_session_path, class: "nav" do %>
+              <%= link_to new_customer_session_path, class: "nav" do %>
                <li class="nav">ログイン</li>
               <% end %>
             <% end %>
