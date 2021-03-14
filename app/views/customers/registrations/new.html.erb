@@ -33,12 +33,12 @@
   
   <div class="field">
     <%= f.label :'郵便番号(ハイフンなし)' %>
-    <%= f.text_field :customer_postal_code, autofocus: true, autocomplete: "customer_postal_code", placeholder: '0000000' %>
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "customer_postal_code", placeholder: '0000000' %>
   </div>
   
   <div class="field">
     <%= f.label :'住所' %>
-    <%= f.text_field :customer_address, autofocus: true, autocomplete: "customer_address", placeholder: '東京都渋谷区代々木神園町0-0' %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "customer_address", placeholder: '東京都渋谷区代々木神園町0-0' %>
   </div>
   
   <div class="field">
@@ -67,4 +67,4 @@
 <h3>既に登録済みの方</h3>
 <%= link_to 'こちら', new_session_path(resource_name)  %>
 <span>からログインしてください。</span>
-<!--<%= render "devise/shared/links" %>-->
+<!--<%= render "customers/shared/links" %>-->
