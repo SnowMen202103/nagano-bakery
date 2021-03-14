@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20210314075906) do
 ActiveRecord::Schema.define(version: 20210314080509) do
 
   create_table "addresses", force: :cascade do |t|
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20210314080938) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string   "genre_name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,8 +84,8 @@ ActiveRecord::Schema.define(version: 20210314080938) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer  "in_tax_price"
-    t.integer  "sweet_number"
-    t.string   "making_status"
+    t.integer  "amount"
+    t.integer  "making_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
