@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210314075906) do
-ActiveRecord::Schema.define(version: 20210314080509) do
+ActiveRecord::Schema.define(version: 20210314080938) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(version: 20210314080509) do
     t.string   "email"
     t.string   "password"
   end
-ActiveRecord::Schema.define(version: 20210314080938) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "user_id"
@@ -75,16 +73,9 @@ ActiveRecord::Schema.define(version: 20210314080938) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "managers", force: :cascade do |t|
-    t.string   "manager_email"
-    t.string   "manager_password"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "order_details", force: :cascade do |t|
     t.integer  "in_tax_price"
-    t.integer  "amount"
+    t.integer  "sweet_number"
     t.integer  "making_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -92,9 +83,6 @@ ActiveRecord::Schema.define(version: 20210314080938) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "order_day"
-    t.string   "order_status"
-    t.string   "pay_way"
     t.integer  "order_status"
     t.integer  "pay_way"
     t.integer  "postage"
