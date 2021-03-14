@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 20210314080509) do
     t.string   "email"
     t.string   "password"
   end
+ActiveRecord::Schema.define(version: 20210314080938) do
 
-  create_table "carts", force: :cascade do |t|
+  create_table "cart_items", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "sweet_id"
-    t.integer  "cart_number"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "item_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -62,6 +63,24 @@ ActiveRecord::Schema.define(version: 20210314080509) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.string   "name"
+    t.text     "content"
+    t.string   "image_id"
+    t.boolean  "sell_status"
+    t.integer  "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string   "manager_email"
+    t.string   "manager_password"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "order_details", force: :cascade do |t|
     t.integer  "in_tax_price"
     t.integer  "sweet_number"
@@ -75,22 +94,13 @@ ActiveRecord::Schema.define(version: 20210314080509) do
     t.datetime "order_day"
     t.string   "order_status"
     t.string   "pay_way"
+    t.integer  "order_status"
+    t.integer  "pay_way"
     t.integer  "postage"
     t.integer  "total_price"
-    t.string   "delivery_address"
-    t.integer  "delivery_postal_code"
-    t.string   "address_name"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "sweets", force: :cascade do |t|
-    t.integer  "genre_id"
-    t.string   "sweet_name"
-    t.text     "content"
-    t.string   "image"
-    t.string   "sell_status"
-    t.integer  "no_tax_price"
+    t.string   "address"
+    t.string   "postal_code"
+    t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
