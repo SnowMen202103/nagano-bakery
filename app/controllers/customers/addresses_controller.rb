@@ -1,4 +1,4 @@
-class AddressesController < ApplicationController
+class Customers::AddressesController < ApplicationController
   before_action :set_customer
   
   def index

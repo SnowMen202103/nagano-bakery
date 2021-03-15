@@ -2,18 +2,18 @@
 <h3>マイページ!</h3>
 <tr>
     <td>登録情報</td>
-    <td><%= link_to "編集する", edit_customer_path, class: "btn btn-success btn-sm my-4" %></td>
+    <td><%= link_to "編集する", edit_customers_customer_path(@customer), class: "btn btn-success btn-sm my-4" %></td>
 </tr>
 
 <div>
     <table border = "1", style = "border-collapse: collapse">
         <tr>
             <td>氏名</td>
-            <td><%= @customer.last_name + " " + @customer.first_name %></td>
+            <td><%= @customer.last_name %></td>
         </tr>
         <tr>
             <td>カナ</td>
-            <td><%= @customer.ruby_last_name + " " + @customer.ruby_first_name %></td>
+            <td><%= @customer.ruby_last_name %></td>
         </tr>
         <tr>
             <td>郵便番号</td>
@@ -36,7 +36,7 @@
 <div>
     <tr>
         <td>配送先</td>
-        <td><%= link_to "一覧を見る", customer_addresses_path(@customer), class: "btn btn-primary btn-sm my-4" %></td>
+        <td><%= link_to "一覧を見る", customers_customer_addresses_path(@customer), class: "btn btn-primary btn-sm my-4" %></td>
     </tr>
 </div>
 <div>
