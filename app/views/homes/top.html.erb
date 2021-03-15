@@ -1,31 +1,43 @@
-<div class="container">
+<div class="container mt-10">
     <div class="row">
-        <div class="col-md-8">
-            <p>
+        <div class="col-lg-3 col-lg-6 offset-lg-3">
+            <p class="border border-dark pt-5 pb-5">
                 ようこそ、ながのCAKEへ！<br>
                 このサイトは、ケーキ販売のECサイトになります。<br>
                 会員でない方も商品の閲覧はできますが、<br>
                 購入には会員登録が必要になります。
             </p>
-            
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <h1>新着商品</h1>
-            <div>
-                <%= image_tag 'nagano.png' %>
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+        <p class="lead p-3">新着商品</p>
+            <div class="d-flex flex-row">
+              <div class="p-3">
+                  <%= image_tag 'nagano.png' %>
+                  <p class="mt-3 mb-3">商品名</p>
+                  <p class="mt-3 mb-3">¥000</p>
+              </div>
+              <div class="p-3">
+                  <%= image_tag 'nagano.png' %>
+                  <p class="mt-3 mb-3">商品名</p>
+                  <p class="mt-3 mb-3">¥000</p>
+              </div>
+              <div class="p-3">
+                  <%= image_tag 'nagano.png' %>
+                  <p class="mt-3 mb-3">商品名</p>
+                  <p class="mt-3 mb-3">¥000</p>
+              </div>
+              <div class="p-3">
+                  <%= image_tag 'nagano.png' %>
+                  <p class="mt-3 mb-3">商品名</p>
+                  <p class="mt-3 mb-3">¥000</p>
+              </div>
             </div>
-            <div>
-                <%= image_tag 'nagano.png' %>
+            <div class="text-right">
+              <%= link_to "全ての商品を見る＞", items_path %>
             </div>
-            <div>
-                <%= image_tag 'nagano.png' %>
-            </div>
-            <div>
-                <%= image_tag 'nagano.png' %>
-            </div>
-            <%= link_to "全ての商品を見る＞", items_path %>
         </div>
     </div>
 </div>
