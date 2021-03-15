@@ -3,15 +3,16 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about'
 
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
+  
   resources :customers, only: [:index, :show, :edit, :update] do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
   get 'customers/goodbye'
 
-  devise_for :customers, controllers: {
-    registrations: 'customers/registrations',
-    sessions: 'customers/sessions'
-  }
 
   resources :cart_items, only: [:index, :update, :destroy]
 
