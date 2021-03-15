@@ -38,12 +38,20 @@
               <%= link_to "/", class: "text-decoration-none text-center" do %>
                <li class="nav">ログアウト</li>
               <% end %>
+            <% elsif admin_signed_in? %>
+              商品⼀覧 会員⼀覧 注⽂履歴⼀覧 ジャンル⼀覧 ログアウト(管理者のヘッダー設定！！！)
             <% else %>
-              <%= link_to new_customer_registration_path, class: "text-decoration-none text-center" do %>
-               <li class="nav">新規登録</li>
+              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+                <li class="nav text-center">About</li>
               <% end %>
-              <%= link_to new_customer_session_path, class: "text-decoration-none text-center" do %>
-               <li class="nav">ログイン</li>
+              <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
+                <li class="nav text-center">商品一覧</li>
+              <% end %>
+              <%= link_to new_customer_registration_path, class: "nav text-decoration-none text-center" do %>
+                <li class="nav">新規登録</li>
+              <% end %>
+              <%= link_to new_customer_session_path, class: "nav text-decoration-none text-center" do %>
+                <li class="nav">ログイン</li>
               <% end %>
             <% end %>
           </ul>

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
+  
   root 'homes#top'
   get 'homes/about'
 
@@ -12,7 +20,6 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
   get 'customers/goodbye'
-
 
   resources :cart_items, only: [:index, :update, :destroy]
 
