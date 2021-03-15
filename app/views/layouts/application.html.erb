@@ -21,31 +21,24 @@
             <% end %>
             <% if customer_signed_in? %>
               <%= link_to "#", class: "nav text-decoration-none text-center" do %>
-               <li class="nav">マイページ</li>
+                <li class="nav">マイページ</li>
               <% end %>
-            <% else %>
-              <%= link_to homes_about_pat, class: "text-decoration-none text-center" do %>
-               <li class="nav">About</li>
+              <%= link_to customers_items_path, class: "nav text-decoration-none text-center" do %>
+                <li class="nav text-center">商品一覧</li>
               <% end %>
-            <% end %>
-            <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
-             <li class="nav text-center">商品一覧</li>
-
-            <% end %>
-            <% if customer_signed_in? %>
-              <%= link_to cart_items_path, class: "text-decoration-none text-center" do %>
-               <li class="nav">カート</li>
+              <%= link_to customers_cart_items_path, class: "text-decoration-none text-center" do %>
+                <li class="nav">カート</li>
               <% end %>
               <%= link_to "/", class: "text-decoration-none text-center" do %>
-               <li class="nav">ログアウト</li>
+                <li class="nav">ログアウト</li>
               <% end %>
             <% elsif admin_signed_in? %>
-              商品⼀覧 会員⼀覧 注⽂履歴⼀覧 ジャンル⼀覧 ログアウト(管理者のヘッダー設定！！！)
+              商品⼀覧 会員⼀覧 注⽂履歴⼀覧 ジャンル⼀覧 <%= link_to 'ログアウト', destroy_admin_session_path , method: :delete %>(管理者のヘッダー設定！！！)
             <% else %>
               <%= link_to "#", class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">About</li>
               <% end %>
-              <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
+              <%= link_to customers_items_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">商品一覧</li>
               <% end %>
               <%= link_to new_customer_registration_path, class: "nav text-decoration-none text-center" do %>
