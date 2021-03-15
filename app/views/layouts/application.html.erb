@@ -28,8 +28,9 @@
                <li class="nav">About</li>
               <% end %>
             <% end %>
-            <%= link_to items_path, class: "text-decoration-none text-center" do %>
-             <li class="nav">商品一覧</li>
+            <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
+             <li class="nav text-center">商品一覧</li>
+
             <% end %>
             <% if customer_signed_in? %>
               <%= link_to cart_items_path, class: "text-decoration-none text-center" do %>
