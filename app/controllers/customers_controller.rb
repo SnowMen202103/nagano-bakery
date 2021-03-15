@@ -11,6 +11,10 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
   
+  def update
+  end
+  
+  
   def goodbye
   end
 end

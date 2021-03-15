@@ -1,9 +1,55 @@
 <h3>会員情報編集</h3>
 
-<!--form_withメソッド使用(インスタンス変数受け取り(controllers/customers))-->
+<%= form_with model: @customer, local:true do |f| %>
 
-<!--form_withここまで-->
+  <!--placeholderの色が濃い-->
+  
+  <div>名前</div>
+  <div class="field">
+    <%= f.label :'(姓)' %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: '令和' %>
+  </div>
+  <div class="field">
+    <%= f.label :'(名)' %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: '道子' %>
+  </div>
+  
+  <div>フリガナ</div>
+  <div class="field">
+    <%= f.label :'(セイ)' %>
+    <%= f.text_field :ruby_last_name, autofocus: true, autocomplete: "ruby_last_name", placeholder: 'レイワ' %>
+  </div>
+  <div class="field">
+    <%= f.label :'(メイ)' %>
+    <%= f.text_field :ruby_first_name, autofocus: true, autocomplete: "ruby_first_name", placeholder: 'ミチコ' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'郵便番号(ハイフンなし)' %>
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: '0000000' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'住所' %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: '東京都渋谷区代々木神園町0-0' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'電話番号(ハイフンなし)' %>
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: '0000000000' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'メールアドレス' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "変更内容を保存", class: "btn btn-success" %>
+  </div>
+<% end %>
+
 
 
 <!--リンク先(customers/goodbye)を設定-->
-<%= link_to '退会する' %>
+<%= link_to '退会する', class: "btn btn-danger" %>

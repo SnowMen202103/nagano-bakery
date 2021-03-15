@@ -10,88 +10,88 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210314080938) do
+ActiveRecord::Schema.define(version: 2021_03_15_030945) do
 
   create_table "addresses", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "customer_id"
-    t.string   "postal_code"
-    t.string   "address"
-    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.string "postal_code"
+    t.string "address"
+    t.string "name"
   end
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "email"
-    t.string   "password"
+    t.string "email"
+    t.string "password"
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.integer  "amount"
+    t.integer "customer_id"
+    t.integer "item_id"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "address"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "ruby_last_name"
-    t.string   "ruby_first_name"
-    t.string   "phone_number"
-    t.string   "postal_code"
-    t.boolean  "is_deleted",             default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "ruby_last_name"
+    t.string "ruby_first_name"
+    t.string "phone_number"
+    t.string "postal_code"
+    t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer  "genre_id"
-    t.string   "name"
-    t.text     "content"
-    t.string   "image_id"
-    t.boolean  "sell_status"
-    t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "genre_id"
+    t.string "name"
+    t.text "content"
+    t.string "image_id"
+    t.boolean "sell_status"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer  "in_tax_price"
-    t.integer  "amount"
-    t.integer  "making_status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer "in_tax_price"
+    t.integer "amount"
+    t.integer "making_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "order_status"
-    t.integer  "pay_way"
-    t.integer  "postage"
-    t.integer  "total_price"
-    t.string   "address"
-    t.string   "postal_code"
-    t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer "customer_id"
+    t.integer "order_status"
+    t.integer "pay_way"
+    t.integer "postage"
+    t.integer "total_price"
+    t.string "address"
+    t.string "postal_code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
