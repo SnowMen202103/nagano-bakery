@@ -1,25 +1,33 @@
-<h2>ショッピングカート</h2>
-<h2>カートを空にする</h2>
+<div class="container">
+  <div class="row">
+    
+    <div class="mb-3 d-flex">
+      <p class="bd-highlight">ショッピングカート</p>
+      <p class="text-right"><%= link_to "カートを空にする", cart_items_path, class: "btn btn-danger" %></p>
+    </div>
+    
+    <table class="table table-striped">
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>チョコ</td>
+        <td>300</td>
+        <td>3<%= link_to "変更", cart_items_path, class: "btn btn-success" %></td>
+        <td>900</td>
+        <td><%= link_to "削除する", cart_items_path, class: "btn btn-danger" %></td>
+      </tr>
+    </table>
+    
+    <p><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
+    
+    <div class="text-center">
+      <p><%= link_to "入力情報に進む", orders_path, class: "btn btn-success" %></p>
+    </div>
 
-<table class="table table-striped">
-  <tr>
-    <th>商品名</th>
-    <th>単価（税込）</th>
-    <th>数量</th>
-    <th>小計</th>
-    <th></th>
-  </tr>
-  <tr>
-    <td>チョコ</td>
-    <td>300</td>
-    <td>3</td>
-    <td>900</td>
-    <td>削除する</td>
-  </tr>
-</table>
-
-<p>
-  <%= link_to orders_index_path do %>
-    <input type="button" value="入力情報に進む" >
-  <% end %>
-</p>
+  </div>
+</div>

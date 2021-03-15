@@ -1,12 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-lg-2 col-lg-8 offset-lg-2 d-flex">
             <%= image_tag 'nagano.png' %>
-            <h1>商品名</h1>
-            <p>商品説明</p>
-            <p>金額</p>
-            <p>個数</p>
-            <%= link_to "カートに入れる", carts_index_path %>
+            <div class="flex-column ml-5">
+              <h2>商品名</h2>
+              <p>商品説明</p>
+              <p>金額</p>
+            <div class="row">
+              <p class="mr-3">個数</p>
+              <div><%= link_to "カートに入れる", cart_items_path, class: "btn btn-success" %></div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
