@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'    
   end
+  namespace :admins do
+    resources :customers, only:[:index, :show, :edit, :update]
+    resources :order_details, only:[:index, :show, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :genres, only:[:index, :create, :edit, :update]
+  end
 
   devise_for :customers, skip: :all
   devise_scope :customer do
