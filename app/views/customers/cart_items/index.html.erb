@@ -14,19 +14,26 @@
         <th>小計</th>
         <th></th>
       </tr>
+      <% @cart_item.each do |cart_item| %>
       <tr>
-        <td>チョコ</td>
-        <td>300</td>
-        <td>3<%= link_to "変更", "#", class: "btn btn-success" %></td>
-        <td>900</td>
+        <td><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.price %></td>
+        <%= form_with model: cart_item, url:customer_cart_item_path(@customer,@cart_item), local:true do |f| %>
+        <td>
+          <%= f.select :amount, [1, 2, 3, 4, 5], {include_blank: cart_item.amount }, class: 'sample' %>
+          <%= link_to "変更", "#", class: "btn btn-success" %>
+        </td>
+        <% end %>
+        <td><%= cart_item.item.price * cart_item.amount %></td>
         <td><%= link_to "削除する", "#", class: "btn btn-danger" %></td>
       </tr>
+      <% end %>
     </table>
 
     <p><%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %></p>
 
     <div class="text-center">
-      <p><%= link_to "入力情報に進む", customer_order_path, class: "btn btn-success" %></p>
+      <p><%= link_to "入力情報に進む", customer_orders_path, class: "btn btn-success" %></p>
     </div>
 
   </div>

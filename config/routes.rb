@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'customers/goodbye'
     get 'searches/search'
     get 'orders/thanks'
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :update, :show]
   end
   root 'customers/homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
