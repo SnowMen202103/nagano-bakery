@@ -28,7 +28,11 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update] do
       resources :addresses, only: [:index, :create, :edit, :update, :destroy]
       resources :order_details, only: [:index, :show, :update]
-      resources :cart_items, only: [:index, :update, :destroy]
+      resources :cart_items, only: [:index, :update, :destroy,] do
+        collection do
+          delete 'destroy_all'
+        end
+      end
       resources :orders, only: [:index, :show, :create, :update]
     end
     get 'homes/about'
