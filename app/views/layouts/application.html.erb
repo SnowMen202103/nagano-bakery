@@ -49,10 +49,10 @@
                 <li class="nav">ログアウト</li>
               <% end %>
             <% else %>
-              <%= link_to homes_path, class: "nav text-decoration-none text-center" do %>
+              <%= link_to homes_about_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">About</li>
               <% end %>
-              <%= link_to customers_items_path, class: "nav text-decoration-none text-center" do %>
+              <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">商品一覧</li>
               <% end %>
               <%= link_to new_customer_registration_path, class: "nav text-decoration-none text-center" do %>
