@@ -5,10 +5,13 @@ class Admins::OrderDetailsController < ApplicationController
   def show
   end
   
-  def edit
+  def update
   end
   
-  def update
+  private
+  
+  def order_detail_set
+    @order_detail = OrderDetail.find(params[:id])
   end
   
 end
