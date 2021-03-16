@@ -1,18 +1,16 @@
 <div class="container">
   <div class="row">
 
-    <div class="mb-3 d-flex">
-      <p class="bd-highlight">ショッピングカート</p>
-      <p class="text-right"><%= link_to "カートを空にする", destroy_all_customer_cart_items_path(@customer), method: :delete, class: "btn btn-danger" %></p>
-    </div>
+    <p>ショッピングカート</p>
+    <p class="ml-auto"><%= link_to "カートを空にする", destroy_all_customer_cart_items_path(@customer), method: :delete, class: "btn btn-danger" %></p>
 
-    <table class="table table-striped">
-      <tr>
-        <th>商品名</th>
-        <th>単価（税込）</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
+    <table class="table">
+      <tr class="table-danger">
+        <th style="width:40%">商品名</th>
+        <th style="width:15%">単価（税込）</th>
+        <th style="width:14%">数量</th>
+        <th style="width:16%">小計</th>
+        <th style="width:15%"></th>
       </tr>
       <% @sum = 0 %>
       <% @cart_item.each do |cart_item| %>
@@ -26,21 +24,24 @@
         <% end %>
         </td>
         <td><%= cart_item.subtotal %></td>
-        <td><%= link_to "削除する", customer_cart_item_path(@customer, cart_item), method: :delete, class: "btn btn-danger" %></td>
+        <td class="text-center"><%= link_to "削除する", customer_cart_item_path(@customer, cart_item), method: :delete, class: "btn btn-danger" %></td>
       </tr>
       <% @sum += cart_item.subtotal %>
       <% end %>
+    </table>
+    
+    <p><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
+      
+    <table class="table ml-auto col-4">
       <tr>
-        <td>合計金額</td>
+        <td class="table-danger">合計金額</td>
         <td><%= @sum %></td>
       </tr>
     </table>
-    <p><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
-
-
-    <div class="text-center">
-      <p><%= link_to "入力情報に進む", customer_orders_path(@customer), class: "btn btn-success" %></p>
-    </div>
-
   </div>
+
+  <div class="row">
+    <p class="mx-auto"><%= link_to "入力情報に進む", customer_orders_path(@customer), class: "btn btn-success" %></p>
+  </div>
+
 </div>
