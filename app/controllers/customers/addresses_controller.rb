@@ -8,6 +8,7 @@ class Customers::AddressesController < ApplicationController
   
   def create
     @address = Address.new(address_params)
+    @address.customer = current_customer
     @address.save
     redirect_to request.referer
   end

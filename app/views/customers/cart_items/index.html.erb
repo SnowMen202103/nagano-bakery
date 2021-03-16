@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    
+
     <div class="mb-3 d-flex">
       <p class="bd-highlight">ショッピングカート</p>
-      <p class="text-right"><%= link_to "カートを空にする", customers_cart_items_path, class: "btn btn-danger" %></p>
+      <p class="text-right"><%= link_to "カートを空にする", "#", class: "btn btn-danger" %></p>
     </div>
-    
+
     <table class="table table-striped">
       <tr>
         <th>商品名</th>
@@ -17,16 +17,16 @@
       <tr>
         <td>チョコ</td>
         <td>300</td>
-        <td>3<%= link_to "変更", customers_cart_items_path, class: "btn btn-success" %></td>
+        <td>3<%= link_to "変更", "#", class: "btn btn-success" %></td>
         <td>900</td>
-        <td><%= link_to "削除する", customers_cart_items_path, class: "btn btn-danger" %></td>
+        <td><%= link_to "削除する", "#", class: "btn btn-danger" %></td>
       </tr>
     </table>
-    
-    <p><%= link_to "買い物を続ける", customers_items_path, class: "btn btn-primary" %></p>
-    
+
+    <p><%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %></p>
+
     <div class="text-center">
-      <p><%= link_to "入力情報に進む", customers_orders_path, class: "btn btn-success" %></p>
+      <p><%= link_to "入力情報に進む", customer_order_path, class: "btn btn-success" %></p>
     </div>
 
   </div>

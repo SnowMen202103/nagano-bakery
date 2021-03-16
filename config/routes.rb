@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     post 'customers' => 'customers/registrations#create', as: 'customer_registration'
     get 'customers/password/new' => 'customers/passwords#new', as: 'new_customer_password'
   end
-  namespace :customers do
+  
+  scope module: :customers do
     resources :customers, only: [:index, :show, :edit, :update] do
       resources :addresses, only: [:index, :create, :edit, :update, :destroy]
       resources :order_details, only: [:index, :show, :update]
@@ -37,6 +38,5 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   end
   root 'customers/homes#top'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
