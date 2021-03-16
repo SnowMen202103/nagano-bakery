@@ -23,10 +23,10 @@
               <%= link_to "#", class: "nav text-decoration-none text-center" do %>
                 <li class="nav">マイページ</li>
               <% end %>
-              <%= link_to customers_items_path, class: "nav text-decoration-none text-center" do %>
+              <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">商品一覧</li>
               <% end %>
-              <%= link_to customers_cart_items_path, class: "text-decoration-none text-center" do %>
+              <%= link_to "#", class: "text-decoration-none text-center" do %>
                 <li class="nav">カート</li>
               <% end %>
               <%= link_to "/", class: "text-decoration-none text-center" do %>
@@ -35,7 +35,7 @@
             <% elsif admin_signed_in? %>
               商品⼀覧 会員⼀覧 注⽂履歴⼀覧 ジャンル⼀覧 <%= link_to 'ログアウト', destroy_admin_session_path , method: :delete %>(管理者のヘッダー設定！！！)
             <% else %>
-              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+              <%= link_to homes_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">About</li>
               <% end %>
               <%= link_to customers_items_path, class: "nav text-decoration-none text-center" do %>

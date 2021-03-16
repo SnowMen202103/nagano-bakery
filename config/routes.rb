@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'customers/password/new' => 'customers/passwords#new', as: 'new_customer_password'
   end
   
-  namespace :customers do
+  scope module: :customers do
     resources :customers, only: [:index, :show, :edit, :update] do
       resources :addresses, only: [:index, :create, :edit, :update, :destroy]
       resources :order_details, only: [:index, :show, :update]
