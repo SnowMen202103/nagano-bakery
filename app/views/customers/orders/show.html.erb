@@ -1,39 +1,78 @@
-<h2>注文情報確認</h2>
+<div class="container">
+  <h2>注文情報確認</h2>
+  <div class="row">
 
-<table>
-  <tr>
-    <th>商品名</th>
-    <th>単価（税込）</th>
-    <th>数量</th>
-    <th>小計</th>
-  </tr>
-  <tr>
-    <td>チョコ</td>
-    <td>300</td>
-    <td>3</td>
-    <td>900</td>
-  </tr>
-</table>
+    <div class="col-md-9">
+      <table class="table">
+        <thead class="thead-lignt">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart| %>
+            <tr>
+              <td class="text-left">
+                <%= attachment_image_tag( cart.item, :image, size: "60x30", fallback: "nagano.png") %>
+                <%= cart.item.name %>
+              </td>
+              <td class="text-left">
+                ¥単価
+              </td>
+              <td class="text-left">
+                数量
+              </td>
+              <td class="text-left">
+                小計
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-<table>
-  <tr>
-    <th>名前</th><td>さとう</td>
-  </tr>
+    <div class="col-md-3">
+     <table class="table">
+          <tr>
+            <th>送料</th>
+            <td class="col-xs-5">¥800</td>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <!--<td class="text-right">¥<= @cart_item.item.price * @cart_item.amount %></td>-->
+          </tr>
+          <tr>
+            <th>請求金額</th>
+            <!--<td class="text-right">¥<= @order.postage + @cart_item.item.price * @cart_item.amount %></td>-->
+          </tr>
+      </table>
+    </div>
 
-  <tr>
-    <th>年齢</th><td>19</td>
-  </tr>
+      <div class="col-md-9">
+      <table class="table table-borderless">
+        <tr>
+          <th>支払方法</th>
+          <td class="text-left">
+            <%= @order.pay_way %>
+          </td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td class="text-left">
+            〒<%= current_customer.postal_code %>&nbsp;<%= current_customer.address %><br>
+            <%= current_customer.first_name %><%= current_customer.last_name %>
+          </td>
+        </tr>
+      </table>
+      </div>
 
-  <tr>
-    <th>血液型</th><td>A型</td>
-  </tr>
-</table>
 
-<h2>支払い方法</h2>
-<h2>お届け先</h2>
+      <div class="col-md-12 text-center">
+        <%= link_to "注文を確定する", orders_thanks_path, class: "btn btn-success col-xs-5" %>
+      </div>
 
-<p>
-  <%= link_to orders_thanks_path do %>
-    <input type="button" value="注文を確定する" >
-  <% end %>
-</p>
+  </div>
+</div>

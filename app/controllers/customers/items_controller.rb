@@ -3,7 +3,7 @@ class Customers::ItemsController < ApplicationController
   def index
     @items = Item.all
   end
-  
+
   def show
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
@@ -27,9 +27,9 @@ class Customers::ItemsController < ApplicationController
   end
 
   private
-  
+
   def cart_items_params
     params.require(:cart_item).permit(:amount)
   end
-  
+
 end
