@@ -31,9 +31,11 @@ Rails.application.routes.draw do
       resources :cart_items, only: [:index, :update, :destroy,] do
         collection do
           delete 'destroy_all'
-          get 'goodbye'
-          patch 'out'
         end
+      end
+      collection do
+        get 'goodbye'
+        patch 'out'
       end
       resources :orders, only: [:index, :show, :create, :update]
     end
