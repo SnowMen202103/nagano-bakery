@@ -17,16 +17,16 @@
        <nav>
           <ul>
             <% if customer_signed_in? %>
-              <!--<li>ようこそ、<= customer.name %>さん！</li>-->
+              <p>ようこそ、<%= current_customer.last_name %>さん！</p>
             <% end %>
             <% if customer_signed_in? %>
-              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+              <%= link_to customer_path(current_customer), class: "nav text-decoration-none text-center" do %>
                 <li class="nav">マイページ</li>
               <% end %>
-              <%= link_to "#", class: "nav text-decoration-none text-center" do %>
+              <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav text-center">商品一覧</li>
               <% end %>
-              <%= link_to "#", class: "text-decoration-none text-center" do %>
+              <%= link_to customer_cart_items_path(current_customer), class: "text-decoration-none text-center" do %>
                 <li class="nav">カート</li>
               <% end %>
               <%= link_to destroy_customer_session_path, method: :delete, class: "text-decoration-none text-center" do %>

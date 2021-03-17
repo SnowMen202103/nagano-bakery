@@ -30,9 +30,12 @@ Rails.application.routes.draw do
       resources :order_details, only: [:index, :show, :update]
       resources :cart_items, only: [:index, :update, :destroy]
       resources :orders, only: [:index, :show, :create, :update]
+      collection do
+        get 'goodbye'
+        patch 'out'
+      end
     end
     get 'homes/about'
-    get 'customers/goodbye'
     get 'searches/search'
     get 'orders/thanks'
     resources :items, only: [:index, :update, :show]
