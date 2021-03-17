@@ -1,13 +1,12 @@
 class Customers::CartItemsController < ApplicationController
-  
+
   def index
     @cart_item = CartItem.where(customer_id:params[:customer_id])
     @customer = Customer.find(params[:customer_id])
-    
   end
 
   def update
-    cart_item = CartItem.find(params[:customer_id])
+    cart_item = CartItem.find(params[:id])
     cart_item.update(cart_item_params)
     redirect_to request.referer
   end
@@ -29,5 +28,4 @@ class Customers::CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:amount)
   end
-
 end
