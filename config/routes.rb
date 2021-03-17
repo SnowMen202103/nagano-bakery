@@ -16,36 +16,37 @@ Rails.application.routes.draw do
 
   devise_for :customers, skip: :all
   devise_scope :customer do
-    get 'customers/sign_in' => 'customers/sessions#new', as: 'new_customer_session'
-    post 'customers/sign_in' => 'customers/sessions#create', as: 'customer_session'
-    delete 'customers/sign_out' => 'customers/sessions#destroy', as: 'destroy_customer_session'
-    get 'customers/sign_up' => 'customers/registrations#new', as: 'new_customer_registration'
-    post 'customers' => 'customers/registrations#create', as: 'customer_registration'
-    get 'customers/password/new' => 'customers/passwords#new', as: 'new_customer_password'
+    get 'customers/sign_in' => 'customer/sessions#new', as: 'new_customer_session'
+    post 'customers/sign_in' => 'customer/sessions#create', as: 'customer_session'
+    delete 'customers/sign_out' => 'customer/sessions#destroy', as: 'destroy_customer_session'
+    get 'customers/sign_up' => 'customer/registrations#new', as: 'new_customer_registration'
+    post 'customers' => 'customer/registrations#create', as: 'customer_registration'
+    get 'customers/password/new' => 'customer/passwords#new', as: 'new_customer_password'
   end
   
-  scope module: :customers do
-    resources :customers, only: [:index, :show, :edit, :update] do
-      resources :addresses, only: [:index, :create, :edit, :update, :destroy]
-      resources :order_details, only: [:index, :show, :update]
-      resources :cart_items, only: [:index, :update, :destroy,] do
-        collection do
-          delete 'destroy_all'
-        end
-      end
+  scope module: :customer do
+    resource :customers, only: [:show, :edit, :update] do
       collection do
         get 'goodbye'
         patch 'out'
       end
-      resources :orders, only: [:index, :show, :create, :update]
     end
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :order_details, only: [:index, :show, :update]
+    resources :cart_items, only: [:index, :update, :destroy,] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+    resources :orders, only: [:index, :show, :create, :update]
+    
     get 'homes/about'
     get 'customers/goodbye'
     get 'searches/search'
     get 'orders/thanks'
     resources :items, only: [:index, :update, :show]
   end
-  root 'customers/homes#top'
+  root 'customer/homes#top'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
