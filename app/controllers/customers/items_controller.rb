@@ -15,11 +15,15 @@ class Customers::ItemsController < ApplicationController
   end
 
   def update
-    cart_items = CartItem.new(cart_items_params)
-    cart_items.item_id = params[:id]
-    cart_items.customer_id = current_customer.id
-    cart_items.save
-    redirect_to customer_cart_items_path(current_customer)
+    if customer_signed_in?
+      cart_items = CartItem.new(cart_items_params)
+      cart_items.item_id = params[:id]
+      cart_items.customer_id = current_customer.id
+      cart_items.save
+      redirect_to customer_cart_items_path(current_customer)
+    else
+      redirect_to new_customer_session_path
+    end
   end
 
   def destroy
