@@ -17,7 +17,6 @@ class Customers::CustomersController < ApplicationController
     redirect_to customer_path(@customer)
   end
   
-  
   def goodbye
   end
   
