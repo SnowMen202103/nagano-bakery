@@ -17,7 +17,7 @@
        <nav>
           <ul>
             <% if customer_signed_in? %>
-              <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+              <!--<li>ようこそ、<= customer.name %>さん！</li>-->
             <% end %>
             <% if customer_signed_in? %>
               <%= link_to customer_path(current_customer), class: "nav text-decoration-none text-center" do %>

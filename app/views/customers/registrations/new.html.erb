@@ -9,21 +9,21 @@
   <div>名前</div>
   <div class="field">
     <%= f.label :'(姓)' %>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: '令和' %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name", placeholder: '令和' %>
   </div>
   <div class="field">
     <%= f.label :'(名)' %>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: '道子' %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name", placeholder: '道子' %>
   </div>
   
   <div>フリガナ</div>
   <div class="field">
     <%= f.label :'(セイ)' %>
-    <%= f.text_field :ruby_last_name, autofocus: true, autocomplete: "ruby_last_name", placeholder: 'レイワ' %>
+    <%= f.text_field :ruby_first_name, autofocus: true, autocomplete: "ruby_last_name", placeholder: 'レイワ' %>
   </div>
   <div class="field">
     <%= f.label :'(メイ)' %>
-    <%= f.text_field :ruby_first_name, autofocus: true, autocomplete: "ruby_first_name", placeholder: 'ミチコ' %>
+    <%= f.text_field :ruby_last_name, autofocus: true, autocomplete: "ruby_first_name", placeholder: 'ミチコ' %>
   </div>
   
   <div class="field">
