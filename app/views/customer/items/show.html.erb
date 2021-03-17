@@ -9,7 +9,8 @@
               <p><%= @item.price %></p>
             <div class="row">
               <p class="mr-3">個数</p>
-              <%= form_with model: @cart_item, url:item_path(@item), method: :patch, local:true do |f| %>
+              <%= form_with model: @cart_item, url:cart_items_path, method: :POST, local:true do |f| %>
+                  <%= f.hidden_field :item_id %>
                   <%= f.select :amount, [1, 2, 3, 4, 5], {include_blank: '個数選択'}, class: 'sample' %>
                   <%= f.submit "カートに入れる", class: "btn btn-success" %>
               <% end %>

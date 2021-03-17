@@ -4,6 +4,14 @@ class Customer::CartItemsController < ApplicationController
     @cart_item = CartItem.where(customer_id:current_customer.id)
   end
 
+  def create
+    @cart_items = CartItem.new(cart_item_params)
+    @cart_items.customer_id = current_customer.id
+  
+    @cart_items.save
+    redirect_to cart_items_path
+  end
+
   def update
     cart_item = CartItem.find(params[:id])
     cart_item.update(cart_item_params)
@@ -25,6 +33,6 @@ class Customer::CartItemsController < ApplicationController
   private
   
   def cart_item_params
-    params.require(:cart_item).permit(:amount)
+    params.require(:cart_item).permit(:amount, :item_id)
   end
 end

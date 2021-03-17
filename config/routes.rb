@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :order_details, only: [:index, :show, :update]
-    resources :cart_items, only: [:index, :update, :destroy,] do
+    resources :cart_items, only: [:index, :create, :update, :destroy,] do
       collection do
         delete 'destroy_all'
       end
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     get 'customers/goodbye'
     get 'searches/search'
     get 'orders/thanks'
-    resources :items, only: [:index, :update, :show]
+    resources :items, only: [:index, :show]
   end
   root 'customer/homes#top'
   
