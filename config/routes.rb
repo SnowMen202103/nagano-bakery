@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
-    resources :order_details, only:[:index, :show, :update]
+    resources :order, only:[:index, :show, :update]
+    resources :order_details, only:[:update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :genres, only:[:index, :create, :edit, :update]
   end
@@ -32,13 +33,12 @@ Rails.application.routes.draw do
       end
     end
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
-    resources :order_details, only: [:index, :show, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy,] do
       collection do
         delete 'destroy_all'
       end
     end
-    resources :orders, only: [:index, :show, :create, :update]
+    resources :orders, only: [:new, :confirm, :index, :show, :create, :update]
     
     get 'homes/about'
     get 'customers/goodbye'
