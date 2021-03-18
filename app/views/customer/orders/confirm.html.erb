@@ -13,6 +13,7 @@
           </tr>
         </thead>
         <tbody>
+          <% @sum = 0 %>
           <% @cart_items.each do |cart_item| %>
             <tr>
               <td class="text-left">
@@ -29,6 +30,7 @@
                 <%= cart_item.subtotal %>
               </td>
             </tr>
+            <% @sum += cart_item.subtotal %>
           <% end %>
         </tbody>
       </table>
@@ -37,16 +39,16 @@
     <div class="col-md-3">
      <table class="table">
           <tr>
-            <th>送料</th>
-            <td class="col-xs-5">¥800</td>
+            <th style="width:50%">送料</th>
+            <td style="width:50%">800</td>
           </tr>
           <tr>
             <th>商品合計</th>
-            <!--<td class="text-right">¥<= @cart_item.item.price * @cart_item.amount %></td>-->
+            <td><%= @sum %></td>
           </tr>
           <tr>
             <th>請求金額</th>
-            <!--<td class="text-right">¥<= @order.postage + @cart_item.item.price * @cart_item.amount %></td>-->
+            <td><%= @sum + 800 %></td>
           </tr>
       </table>
     </div>
@@ -69,7 +71,6 @@
       </table>
       </div>
 
-ss
       <div class="col-md-12 text-center">
         <%= link_to "注文を確定する", thanks_orders_path, class: "btn btn-success col-xs-5" %>
       </div>

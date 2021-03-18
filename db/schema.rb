@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_010723) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "in_tax_price"
-    t.integer "sweet_number"
+    t.integer "amount"
     t.integer "making_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,4 +1,5 @@
 class Customer::OrdersController < ApplicationController
+  before_action :order_params, only: [:cofirm]
 
   def new
     @order = Order.new
