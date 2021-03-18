@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>注文履歴一覧</h2>
+  <div class="row">
+      <!--order_detailsのインスタンス変数を受け取る-->
+      <div class="col-md-10">
+      <table class="table">
+        <thead class="thead-lignt">
+          <tr>
+            <td>購入日時</td>
+            <td>購入者</td>
+            <td>注文個数</td>
+            <td>注文ステータス</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td>
+              <%= link_to admins_order_path(order) do %>
+                <%= order.created_at %>
+              <% end %>
+            </td>
+            <td><%= order.first_name %><%= order.last_name %></td>
+            <td><%= order.cart_items.count %></td>
+            <td><%= order.order_status %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+  </div>
+  </div>
+  </div>
