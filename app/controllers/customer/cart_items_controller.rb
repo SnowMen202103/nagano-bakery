@@ -5,11 +5,14 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_items = CartItem.new(cart_item_params)
-    @cart_items.customer_id = current_customer.id
-  
-    @cart_items.save
-    redirect_to cart_items_path
+    if customer_signed_in?
+      @cart_items = CartItem.new(cart_item_params)
+      @cart_items.customer_id = current_customer.id
+      @cart_items.save
+      redirect_to cart_items_path
+    else
+      redirect_to new_customer_session_path
+    end
   end
 
   def update

@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    <h2>注文履歴詳細</h2>
+      
+      <div class="col-md-9">
+      <table class="table table-borderless">
+        <tr>
+          <th>購入者</th>
+          <td class="text-left">
+            <%= @order.first_name %><%= order.last_name %>
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <th>注文日</th>
+          <td class="text-left">
+            <%= @order.created_at %>
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <th>配送先</th>
+          <td class="text-left">
+            <%= @order.postal_code %>&nbsp;<%= @order.address %><br>
+            <%= @order.name %>
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <th>支払方法</th>
+          <td class="text-left">
+            <%= @order.pay_way %>
+          </td>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <td class="text-left">
+            <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+			         <td>
+			           <%= f.select :order_status, OrderDetail.order_statuses.keys, {prompt: 0} %>
+			           <%= f.submit '更新' , class: "btn btn-success" %>
+			         </td>
+			       <% end %>
+          </td>
+        </tr>
+      </table>
+      </div>
+      
+      <div class="col-md-10">
+      <table class="table">
+        <thead class="thead-lignt">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.in_tax_price %></td>
+              <td><%= order_detail.amount %></td>
+              <td><%= order_detail.in_tax_price * order_detail.amount %></td>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
+			           <td>
+			            <%= f.select :making_status, OrderDetail.making_statuses.keys, {prompt: 0} %>
+			            <%= f.submit '更新' , class: "btn btn-success" %>
+			           </td>
+			         <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      
+      <table class="table-borderless">
+        <tr>
+          <th>商品合計</th>
+          <td>円</td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td>円</td>
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <td>円</td>
+        </tr>
+      </table>
+  
+  </div>
+  </div>
+  </div>
