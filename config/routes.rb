@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
     post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
-    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'    
+    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
   namespace :admins do
     resources :customers, only:[:index, :show, :edit, :update]
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     post 'customers' => 'customer/registrations#create', as: 'customer_registration'
     get 'customers/password/new' => 'customer/passwords#new', as: 'new_customer_password'
   end
-  
+
   scope module: :customer do
     resource :customers, only: [:show, :edit, :update] do
       collection do
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       end
     end
     resources :orders, only: [:new, :confirm, :index, :show, :create, :update]
-    
+
     get 'homes/about'
     get 'customers/goodbye'
     get 'searches/search'
@@ -47,6 +47,6 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   end
   root 'customer/homes#top'
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
