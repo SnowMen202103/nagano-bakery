@@ -38,12 +38,15 @@ Rails.application.routes.draw do
         delete 'destroy_all'
       end
     end
-    resources :orders, only: [:new,  :index, :show, :create, :update]
+    resources :orders, only: [:new,  :index, :show, :create, :update] do
+      collection do
+        get 'thanks'
+        get 'confirm'
+      end
+    end
     get 'homes/about'
     get 'customers/goodbye'
     get 'searches/search'
-    get 'orders/thanks'
-    get 'orders/confirm'
     resources :items, only: [:index, :show]
   end
   root 'customer/homes#top'

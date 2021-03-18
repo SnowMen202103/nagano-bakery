@@ -6,11 +6,14 @@ class Customer::OrdersController < ApplicationController
   end
   
   def create
+    @order = Order.new(order_params)
     @cart_items = CartItem.all
     
   end
   
   def confirm
+    @cart_items = CartItem.where(customer_id:current_customer.id)
+    @order = Order.find_by(customer_id:current_customer.id)
   end
 
   def index
@@ -23,5 +26,11 @@ class Customer::OrdersController < ApplicationController
 
   def thanks
   end
+  
+  private
+  
+  def order_params
+  end
+  
 
 end
