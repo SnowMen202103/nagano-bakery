@@ -1,11 +1,9 @@
 class Admins::OrderDetailsController < ApplicationController
-  def index
-  end
-  
-  def show
-  end
   
   def update
+    @order_detail = OrderDetail.find(params[:id])
+    @order_detail.update
+    redirect_to admins_order_path(@order_detail.order)
   end
   
   private
