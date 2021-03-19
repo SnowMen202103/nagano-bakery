@@ -48,7 +48,8 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td class="text-right">￥<%= @sum + @order.postage %></td>
+            <% @order.total_price = @sum + @order.postage %>
+            <td class="text-right">￥<%= @order.total_price %></td>
           </tr>
       </table>
     </div>
