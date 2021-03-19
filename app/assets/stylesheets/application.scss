@@ -78,7 +78,7 @@ ul {
 // }
 
 
-a:hover {
+.nav:hover {
    background: #CC3366;
    color: #FFFF99;
 }
@@ -93,5 +93,9 @@ img {
 }
 
 .address-order{
+   border: none;
+}
+
+.address{
    border: none;
 }
