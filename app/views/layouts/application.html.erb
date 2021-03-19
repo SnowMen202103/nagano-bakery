@@ -16,7 +16,7 @@
        <nav>
           <ul>
             <% if customer_signed_in? %>
-              <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+              <p class="mt-auto">ようこそ、<%= current_customer.last_name %>さん！</p>
             <% end %>
             <% if customer_signed_in? %>
               <%= link_to customers_path, class: "nav text-decoration-none" do %>
@@ -42,10 +42,10 @@
                 <li>注文履歴一覧</li>
               <% end %>
               <%= link_to admins_genres_path, class: "nav text-decoration-none text-center" do %>
-                <li >ジャンル一覧</li>
+                <li>ジャンル一覧</li>
               <% end %>
               <%= link_to destroy_admin_session_path, method: :delete, class: "nav text-decoration-none text-center" do %>
-                <li >ログアウト</li>
+                <li>ログアウト</li>
               <% end %>
             <% else %>
               <%= link_to homes_about_path, class: "nav text-decoration-none text-center" do %>
