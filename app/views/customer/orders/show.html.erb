@@ -1,0 +1,74 @@
+<div class="container">
+  <h2>注文履歴詳細</h2>
+  <div class="row">
+
+    <div class="col-md-7">
+      <table class="table">
+        <thead class="thead-lignt">
+          <p class="font-weight-bold">注文情報</p>
+          <tr>
+            <td style="width:20%", class="table-danger">注文日</th>
+            <td style="width:80%"><%= @order.created_at %></td>
+          </tr>
+          <tr>
+            <td class="table-danger">配送先</th>
+            <td>
+              〒<%= @order.postal_code%><br>
+              <%= @order.address %><br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <td class="table-danger">支払方法</th>
+            <td><%= @order.pay_way %></td>
+          </tr>
+          <tr>
+            <td class="table-danger">ステータス</th>
+            <td><%= @order.order_status %></td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    
+    <div class="col-md-5">
+     <p class="font-weight-bold">請求情報</p>
+     <table class="table">
+          <tr>
+            <td style="width:50%", class="table-danger">商品合計</th>
+            <td style="width:50%">￥<%= @sum %></td>
+          </tr>
+          <tr>
+            <td class="table-danger">送料</th>
+            <td>￥<%= @order.postage %></td>
+          </tr>
+          <tr>
+            <th class="table-danger">請求金額</th>
+            <%#<td>￥<%= @sum + @order.postage %></td>
+          </tr>
+      </table>
+    </div>
+    <div class="col-md-9">
+     <p class="font-weight-bold">注文内容</p>
+     <table class="table">
+        <tbody>
+          <tr class="table-danger">
+            <td style="width:30%">商品</th>
+            <td style="width:10%">単価（税込）</th>
+            <td style="width:5%">個数</th>
+            <td style="width:5%">小計</th>
+          </tr>
+          <% @sum = 0 %>
+          <% @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.price %></td>
+            <td><%= order_detail.amount %></td>
+            <%#<td><%= order_detail.item.cart_items.subtotal %></td>
+          </tr>
+          <%#<% @sum += cart_item.subtotal %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
