@@ -4,8 +4,8 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
   <body>
     <header>
@@ -37,7 +37,7 @@
               <%= link_to admins_customers_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav">会員一覧</li>
               <% end %>
-              <%= link_to admins_order_details_path, class: "nav text-decoration-none text-center" do %>
+              <%= link_to admins_order_index_path, class: "nav text-decoration-none text-center" do %>
                 <li class="nav">注文履歴一覧</li>
               <% end %>
               <%= link_to admins_genres_path, class: "nav text-decoration-none text-center" do %>
