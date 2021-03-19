@@ -2,6 +2,7 @@ class Admins::OrderController < ApplicationController
   
   def index
     @orders = Order.all
+
   end
   
   def show

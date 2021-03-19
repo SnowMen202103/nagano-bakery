@@ -20,8 +20,8 @@
                 <%= order.created_at %>
               <% end %>
             </td>
-            <td><%= order.first_name %><%= order.last_name %></td>
-            <td><%= order.cart_items.count %></td>
+            <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+            <td><%= order.order_details.count %></td>
             <td><%= order.order_status %></td>
           </tr>
           <% end %>
