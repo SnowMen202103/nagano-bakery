@@ -58,14 +58,13 @@
         <tr>
           <th>支払方法</th>
           <td class="text-left">
-            <%#<%= @order.pay_way %>
+          <td><%= @order.pay_way %></td>
           </td>
         </tr>
         <tr>
           <th>お届け先</th>
           <td class="text-left">
-            〒<%= current_customer.postal_code %>&nbsp;<%= current_customer.address %><br>
-            <%= current_customer.last_name %><%= current_customer.first_name %>
+            <%#= @order.postal_code %>
           </td>
         </tr>
       </table>
