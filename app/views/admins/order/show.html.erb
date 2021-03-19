@@ -39,7 +39,7 @@
           <td class="text-left">
             <%= form_with model: @order, url: admins_order_path(@order), method: :patch do |f| %>
 			         <td>
-			           <%= f.select :order_status, OrderDetail.order_statusels.keys, {prompt: 0} %>
+			           <%= f.select :order_status, OrderDetail.order_statuses.keys, {prompt: 0} %>
 			           <%= f.submit '更新' , class: "btn btn-success" %>
 			         </td>
 			       <% end %>
