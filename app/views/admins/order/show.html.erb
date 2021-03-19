@@ -9,7 +9,7 @@
         <tr>
           <th>購入者</th>
           <td class="text-left">
-            <%= @order.first_name %><%= order.last_name %>
+            <%= @order.customer.first_name %><%= @order.customer.last_name %>
           </td>
         </tr>
         <tr>
@@ -37,9 +37,9 @@
         <tr>
           <th>注文ステータス</th>
           <td class="text-left">
-            <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+            <%= form_with model: @order, url: admins_order_path(@order), method: :patch do |f| %>
 			         <td>
-			           <%= f.select :order_status, OrderDetail.order_statuses.keys, {prompt: 0} %>
+			           <%= f.select :order_status, OrderDetail.order_statusels.keys, {prompt: 0} %>
 			           <%= f.submit '更新' , class: "btn btn-success" %>
 			         </td>
 			       <% end %>

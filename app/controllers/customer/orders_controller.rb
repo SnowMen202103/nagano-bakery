@@ -28,12 +28,28 @@ class Customer::OrdersController < ApplicationController
   end
 
   def create
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    redirect_to thanks_orders_path
+    
+    @cart_items = CartItem.where(customer_id:current_customer.id)
+    @cart_items.each do |cart_item|
+    OrderDetail.create(
+      item_id: cart_item.item.id,
+      order_id: @order.id,
+      amount: cart_item.amount,
+      in_tax_price: cart_item.item.price * 1.1
+      )
+    end
   end
   
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = current_customer.orders.find(params[:id])
+    @order_details = @order.order_details
   end
 
   def thanks
@@ -42,7 +58,7 @@ class Customer::OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order).permit(:pay_way)
+    params.require(:order).permit(:pay_way, :address, :postal_code, :name, :total_price)
   end
   
 
