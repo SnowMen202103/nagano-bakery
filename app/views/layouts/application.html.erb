@@ -3,6 +3,7 @@
   <head>
     <title>NaganoCake</title>
     <%= csrf_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -18,46 +19,46 @@
               <p>ようこそ、<%= current_customer.last_name %>さん！</p>
             <% end %>
             <% if customer_signed_in? %>
-              <%= link_to customers_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">マイページ</li>
+              <%= link_to customers_path, class: "nav text-decoration-none" do %>
+                <li>マイページ</li>
               <% end %>
               <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav text-center">商品一覧</li>
+                <li>商品一覧</li>
               <% end %>
-              <%= link_to cart_items_path, class: "text-decoration-none text-center" do %>
-                <li class="nav">カート</li>
+              <%= link_to cart_items_path, class: "nav text-decoration-none text-center" do %>
+                <li>カート</li>
               <% end %>
-              <%= link_to destroy_customer_session_path, method: :delete, class: "text-decoration-none text-center" do %>
-                <li class="nav">ログアウト</li>
+              <%= link_to destroy_customer_session_path, method: :delete, class: "nav text-decoration-none text-center" do %>
+                <li>ログアウト</li>
               <% end %>
             <% elsif admin_signed_in? %>
               <%= link_to admins_items_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">商品一覧</li>
+                <li>商品一覧</li>
               <% end %>
               <%= link_to admins_customers_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">会員一覧</li>
+                <li>会員一覧</li>
               <% end %>
               <%= link_to admins_order_index_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">注文履歴一覧</li>
+                <li>注文履歴一覧</li>
               <% end %>
               <%= link_to admins_genres_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">ジャンル一覧</li>
+                <li >ジャンル一覧</li>
               <% end %>
               <%= link_to destroy_admin_session_path, method: :delete, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">ログアウト</li>
+                <li >ログアウト</li>
               <% end %>
             <% else %>
               <%= link_to homes_about_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav text-center">About</li>
+                <li>About</li>
               <% end %>
               <%= link_to items_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav text-center">商品一覧</li>
+                <li>商品一覧</li>
               <% end %>
               <%= link_to new_customer_registration_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">新規登録</li>
+                <li>新規登録</li>
               <% end %>
               <%= link_to new_customer_session_path, class: "nav text-decoration-none text-center" do %>
-                <li class="nav">ログイン</li>
+                <li>ログイン</li>
               <% end %>
             <% end %>
           </ul>
