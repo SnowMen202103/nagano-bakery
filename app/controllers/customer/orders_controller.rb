@@ -35,12 +35,13 @@ class Customer::OrdersController < ApplicationController
     @cart_items = CartItem.where(customer_id:current_customer.id)
     @cart_items.each do |cart_item|
     OrderDetail.create(
-      item_id: cart_item.item.id,
-      order_id: @order.id,
-      amount: cart_item.amount,
+      item_id:      cart_item.item.id,
+      order_id:     @order.id,
+      amount:       cart_item.amount,
       in_tax_price: cart_item.item.price * 1.1
       )
     end
+    @cart_items.destroy_all
   end
   
   def index
@@ -50,6 +51,7 @@ class Customer::OrdersController < ApplicationController
   def show
     @order = current_customer.orders.find(params[:id])
     @order_details = @order.order_details
+    @order.postage = 800
   end
 
   def thanks
