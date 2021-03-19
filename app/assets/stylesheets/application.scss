@@ -29,6 +29,7 @@ body {
 //
 
 header {
+   z-index: 30;
    padding: 15px 4% 10px;
    position: fixed;
    top: 0;
@@ -47,6 +48,13 @@ h1 {
 .nav {
    color: #993300;
    text-align: center;
+   display: block;
+   margin: 0 0 0 50px;
+   font-size: 20px;
+   padding: 10px;
+   border: 3px solid #993300;
+   border-radius: 12px;
+   background: #FFCC66;
 }
 
 nav {
@@ -59,16 +67,18 @@ ul {
    display: flex;
 }
 
-li {
-   margin: 0 0 0 80px;
-   font-size: 20px;
-  padding: 10px;
-   border: 3px solid #993300;
-   border-radius: 12px;
-   background: #FFCC66;
-}
+// li {
+//    display: block;
+//    margin: 0 0 0 50px;
+//    font-size: 20px;
+//    padding: 10px;
+//    border: 3px solid #993300;
+//    border-radius: 12px;
+//    background: #FFCC66;
+// }
 
-li:hover {
+
+.nav:hover {
    background: #CC3366;
    color: #FFFF99;
 }
@@ -80,4 +90,12 @@ img {
 
 .yield {
    margin-top: 200px;
+}
+
+.address-order{
+   border: none;
+}
+
+.address{
+   border: none;
 }
