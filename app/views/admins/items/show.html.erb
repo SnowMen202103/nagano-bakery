@@ -1,33 +1,45 @@
-<h3>商品詳細</h3>
+<div class="container">
+<div class="row">
 
-  <%= attachment_image_tag @item, :image %>
-  <table>
-    <tr>
-      <td>商品名</td>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <td>商品説明</td>
-      <td><%= @item.content %></td>
-    </tr>
-    <tr>
-      <td>ジャンル</td>
-      <td><%= @item.genre.name %></td>
-    </tr>
-    <tr>
-      <td>税込み価格<br>(税抜き価格)</td>
-      <td><%= (@item.price * 1.1).round %>(<%= @item.price %>) 円</td>
-    </tr>
-    <tr>
-      <td>販売ステータス</td>
-      <td>
-        <% if @item.sell_status == true %>
-          販売中
-        <% else %>
-          販売停止中
-        <% end %>
-      </td>
-    </tr>
-  </table>
-  
-  <%= link_to '編集する', edit_admins_item_path(@item) %>
+  <h2 class="col-md-8 mb-5">商品詳細</h2>
+
+    <div class="col-md-6 d-flex">
+      <%= attachment_image_tag @item, :image, class: "mr-5" %>
+    <!--</div>-->
+    <!--<div class="ml-3">-->
+      <table class="table table-borderless">
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.content %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <th>税込み価格<br>(税抜き価格)</th>
+          <td><%= (@item.price * 1.1).round %>(<%= @item.price %>) 円</td>
+        </tr>
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            <% if @item.sell_status == true %>
+              販売中
+            <% else %>
+              販売停止中
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <%= link_to '編集する', edit_admins_item_path(@item), class: "btn btn-success" %>
+    </div>
+
+  </div>
+  </div>
