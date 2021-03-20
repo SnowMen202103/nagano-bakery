@@ -24,6 +24,10 @@ class Customer::OrdersController < ApplicationController
         @order.postal_code = params[:order][:postal_code]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
+        unless @order.valid? == true
+        @addresses = Address.where(customer: current_customer)
+        render :new
+        end
       end
   end
 
