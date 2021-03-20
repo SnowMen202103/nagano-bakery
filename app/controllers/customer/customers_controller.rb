@@ -14,7 +14,7 @@ class Customer::CustomersController < ApplicationController
     if customer.update(customer_params)
       redirect_to customers_path
     else
-      redirect_to request.referer
+      render 'edit'
     end
   end
   

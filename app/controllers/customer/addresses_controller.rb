@@ -3,6 +3,7 @@ class Customer::AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+    
   end
   
   def create
@@ -26,7 +27,7 @@ class Customer::AddressesController < ApplicationController
       redirect_to addresses_path
     else
       @addresses = Address.all
-      render 'index'
+      render 'edit'
     end
   end
 

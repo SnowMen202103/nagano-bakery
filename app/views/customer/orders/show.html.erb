@@ -35,7 +35,7 @@
      <table class="table">
           <tr>
             <td style="width:50%", class="table-danger">商品合計</th>
-            <td style="width:50%">￥<%= @order.total_price %> - <%= @order.postage %></td>
+            <td style="width:50%">￥<%= @order.total_price - @order.postage %></td>
           </tr>
           <tr>
             <td class="table-danger">送料</th>
