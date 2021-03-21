@@ -4,7 +4,7 @@
   <h3 class="col-md-10"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
 
     <table class="table table-borderless">
-  <%= form_with model:@customer, url:admins_customer_path(@customer) , local:true do |f| %>
+  <%= form_with model: @customer, url:admins_customer_path(@customer) , local:true do |f| %>
     <%= render "layouts/error_messages", resource: @customer %>
     <tr>
       <th><%= f.label :'会員ID' %></th>

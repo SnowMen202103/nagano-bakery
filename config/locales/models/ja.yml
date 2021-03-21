@@ -11,11 +11,20 @@ ja:
         phone_number: 電話番号
         email: メールアドレス
         
+      address:
+        postal_code: 郵便番号
+        address: 住所
+        name: 宛名
+        
+      cart_item:
+        amount: 個数
+        
       item:
         genre: ジャンル名
         image: 画像
         name: 商品名
         content: 商品説明
         price: 税抜価格
+        
       genre:
         name: ジャンル名

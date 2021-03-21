@@ -1,6 +1,7 @@
 <div class="container">
-  <h3>会員情報編集</h3>
   <%= form_with model: @customer, url: { controller: "customer/customers", action: "update" }, method: :PATCH, local: true do |f| %>
+    <%= render "layouts/error_messages", resource: @customer %>
+    <h3>会員情報編集</h3>
     <table class="address">
       <tr class="address">
         <td class="address"><%= f.label :"名前" %></td>

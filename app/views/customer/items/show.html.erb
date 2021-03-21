@@ -10,6 +10,7 @@
             <div class="row">
               <p class="mr-3">個数</p>
               <%= form_with model: @cart_item, url:cart_items_path, method: :POST, local:true do |f| %>
+                  <%= render "layouts/error_messages", resource: @cart_item %>
                   <%= f.hidden_field :item_id %>
                   <%= f.select :amount, [1, 2, 3, 4, 5], {prompt: '個数選択'}, class: 'sample' %>
                   <%= f.submit "カートに入れる", class: "btn btn-success" %>
