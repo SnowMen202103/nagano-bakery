@@ -9,9 +9,13 @@ class Admins::ItemsController < ApplicationController
   end
   
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to admins_item_path(item)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admins_item_path(item)
+    else
+      render 'new'
+      @item = Item.new
+    end
   end
   
   def index
