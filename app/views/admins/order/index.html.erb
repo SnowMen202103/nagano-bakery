@@ -21,12 +21,20 @@
               <% end %>
             </td>
             <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
-            <td><%= order.order_details.count %></td>
+            <td>
+              <% @amount = 0 %>
+              <% order.order_details.each do |order_detail| %>
+                <% @amount += order_detail.amount %>
+              <% end %>
+              <%= @amount %>
+            </td>
             <td><%= order.order_status %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
+
+      <%= paginate @orders %>
 
   </div>
   </div>

@@ -1,7 +1,9 @@
 class Admins::OrderController < ApplicationController
+  
+  PER = 10
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(PER)
 
   end
 
@@ -13,7 +15,7 @@ class Admins::OrderController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to admins_order_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
