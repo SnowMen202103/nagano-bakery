@@ -1,6 +1,8 @@
 class Customer::OrdersController < ApplicationController
   before_action :order_params, only: [:cofirm]
 
+  PER = 10
+
   def new
     @order = Order.new
     @addresses = Address.where(customer_id: current_customer.id)
@@ -54,12 +56,12 @@ class Customer::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.page(params[:page]).per(PER)
   end
 
   def show
     @order = current_customer.orders.find(params[:id])
-    @order_details = @order.order_details
+    @order_details = @order.order_details.page(params[:page]).per(5)
     @order.postage = 800
   end
 

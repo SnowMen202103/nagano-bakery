@@ -1,7 +1,9 @@
 class Customer::AddressesController < ApplicationController
   
+  PER = 5
+  
   def index
-    @addresses = Address.all
+    @addresses = Address.page(params[:page]).per(PER)
     @address = Address.new
     
   end

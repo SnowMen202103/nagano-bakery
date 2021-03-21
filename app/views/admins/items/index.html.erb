@@ -1,38 +1,41 @@
 <div class="container">
-<div class="row">
-
-<h2 class="col-md-8 mb-3">商品一覧</h2>
-  <%= link_to new_admins_item_path, class: "col-md-4 text-right" do %>
-    <i class="fas fa-plus-square fa-2x"></i>
-  <% end %>
-  <table class="table">
-    <thead class="thead-light">
+    <div class="row">
+    <div class="d-flex">
+      <h2 class="mb-3 mr-5">商品一覧</h2>
+      <%= link_to new_admins_item_path, class: "text-right" do %>
+        <i class="fas fa-plus-square fa-2x"></i>
+      <% end %>
+    </div>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜き価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <% @items.each do |item| %>
       <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜き価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
+        <td><%= item.id %></td>
+        <td>
+          <%= link_to item.name, admins_item_path(item) %>
+        </td>
+        <td><%= item.price %></td>
+        <td><%= item.genre.name %></td>
+        <td>
+          <% if item.sell_status == true %>
+            <div class="text-success">販売中</div>
+          <% else %>
+            <div class="text-secondary">販売停止中</div>
+          <% end %>
+        </td>
       </tr>
-    </thead>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td>
-        <%= link_to item.name, admins_item_path(item) %>
-      </td>
-      <td><%= item.price %></td>
-      <td><%= item.genre.name %></td>
-      <td>
-        <% if item.sell_status == true %>
-          <div class="text-success">販売中</div>
-        <% else %>
-          <div class="text-secondary">販売停止中</div>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-
+      <% end %>
+    </table>
+    
+    <%= paginate @items %>
+    
   </div>
-  </div>
+</div>

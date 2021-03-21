@@ -1,5 +1,7 @@
 class Admins::ItemsController < ApplicationController
   
+  PER = 10
+  
   before_action :item_set, except:[:new, :create , :index]
   
   def new
@@ -13,7 +15,8 @@ class Admins::ItemsController < ApplicationController
   end
   
   def index
-    @items = Item.all
+    # @items = Item.all
+    @items = Item.page(params[:page]).per(PER)
   end
   
   def show

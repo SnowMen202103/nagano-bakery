@@ -1,7 +1,9 @@
 class Admins::OrderController < ApplicationController
+  
+  PER = 10
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(PER)
 
   end
 
@@ -12,6 +14,7 @@ class Admins::OrderController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+
     if order_params[:order_status] == '入金確認'
       @order.update(order_params)
       @order_details = @order.order_details
