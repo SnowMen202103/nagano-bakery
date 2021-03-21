@@ -1,6 +1,5 @@
 <div class="container">
-
-  <h2>注文情報入力</h2>
+    <h2>注文情報入力</h2>
 
   <%= form_with model: @order, url:confirm_orders_path, method: :post, local: true do |f|  %>
     <%= render "layouts/error_messages", resource: @order %>

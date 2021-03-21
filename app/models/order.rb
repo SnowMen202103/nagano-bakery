@@ -9,4 +9,7 @@ class Order < ApplicationRecord
     validates :address, presence: true
     validates :name, presence: true
     
+    validates :address_id, presence: true
+
+    
 end
