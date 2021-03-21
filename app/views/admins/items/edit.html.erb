@@ -4,7 +4,8 @@
   <h2 class="col-md-8">商品編集</h2>
 
   <div class="col mx-auto">
-    <%= form_with model:@item, url: admins_item_path, local:true do |f| %>
+    <%= form_with model: @item, url: admins_item_path, local:true do |f| %>
+    <%= render "layouts/error_messages", resource: @item %>
     <table class="table table-borderless">
       <tr>
         <th><%= f.label :'商品画像' %></th>

@@ -2,6 +2,8 @@
   <h3>配送先編集</h3>
   
   <%= form_with model: @address, local:true do |f| %>
+    <%= render "layouts/error_messages", resource: @address %>
+
     <table class="address">
       <tr class="address">
         <td class="address"><%= f.label :"郵便番号(ハイフンなし)" %></td>

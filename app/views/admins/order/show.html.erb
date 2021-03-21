@@ -69,7 +69,7 @@
               <td><%= order_detail.in_tax_price * order_detail.amount %></td>
               <% @sum += order_detail.in_tax_price * order_detail.amount %>
               <%= form_with model: order_detail, url: admins_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-			         <td><%= f.select :making_status, OrderDetail.making_statuses.keys, {prompt: 0} %></td>
+			         <td><%= f.select :making_status, OrderDetail.making_statuses.keys %></td>
 			         <td><%= f.submit '更新' , class: "btn btn-success" %></td>
 			        <% end %>
             </tr>

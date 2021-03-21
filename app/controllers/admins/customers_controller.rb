@@ -13,8 +13,11 @@ class Admins::CustomersController < ApplicationController
   end
   
   def update
-    @customer.update(customer_params)
+    if @customer.update(customer_params)
     redirect_to admins_customer_path(@customer)
+    else
+      render 'edit'
+    end
   end
   
   private

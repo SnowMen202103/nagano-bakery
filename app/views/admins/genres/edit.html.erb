@@ -5,6 +5,7 @@
 
   <div class="mt-5">
   <%= form_with model:@genre, url: admins_genre_path, local:true do |f| %>
+    <%= render "layouts/error_messages", resource: @genre %>
     <%= f.label :'ジャンル名' %>
     <%= f.text_field :name %>
     <%= f.submit '変更を保存', class: "btn btn-success ml-3" %>
