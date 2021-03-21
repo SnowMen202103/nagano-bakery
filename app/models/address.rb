@@ -7,6 +7,6 @@ class Address < ApplicationRecord
     
     validates :postal_code, presence: true, format: {with: /\A\d{7}\z/ }
     validates :address, presence: true
-    validates :name, presence: true, length: { minimum: 2 }
+    validates :name, presence: true
 
 end

@@ -79,6 +79,7 @@
           <%= f.hidden_field :address %>
           <%= f.hidden_field :name %>
           <%= f.hidden_field :total_price %>
+          <%= f.hidden_field :ship, value: @ship %>
           <%= f.submit "注文を確定する", class: "btn btn-success col-xs-5" %>
         <% end %>
       </div>

@@ -7,7 +7,7 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new
     @addresses = Address.where(customer_id: current_customer.id)
   end
-  
+
   def confirm
     @cart_items = CartItem.where(customer_id:current_customer.id)
     @order = Order.new(order_params)
@@ -26,9 +26,10 @@ class Customer::OrdersController < ApplicationController
         @order.postal_code = params[:order][:postal_code]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
+        @ship = "1"
         unless @order.valid? == true
-        @addresses = Address.where(customer: current_customer)
-        render :new
+          @addresses = Address.where(customer: current_customer)
+          render :new
         end
       end
   end
@@ -37,7 +38,11 @@ class Customer::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to thanks_orders_path
-    
+
+    if params[:order][:ship] == "1"
+      current_customer.addresses.create(address_params)
+    end
+
     @cart_items = CartItem.where(customer_id:current_customer.id)
     @cart_items.each do |cart_item|
     OrderDetail.create(
@@ -49,7 +54,7 @@ class Customer::OrdersController < ApplicationController
     end
     @cart_items.destroy_all
   end
-  
+
   def index
     @orders = current_customer.orders.page(params[:page]).per(PER)
   end
@@ -62,12 +67,16 @@ class Customer::OrdersController < ApplicationController
 
   def thanks
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:pay_way, :address, :postal_code, :name, :total_price)
   end
-  
+
+  def address_params
+    params.require(:order).permit(:address, :postal_code, :name)
+  end
+
 
 end
