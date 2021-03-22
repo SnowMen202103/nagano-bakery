@@ -1,9 +1,9 @@
 <div class="container">
 <div class="row">
 
-  <h2 class="col-md-8">商品編集</h2>
+  <h2>商品編集</h2>
 
-  <div class="col mx-auto">
+  <div>
     <%= form_with model: @item, url: admins_item_path, local:true do |f| %>
     <%= render "layouts/error_messages", resource: @item %>
     <table class="table table-borderless">
@@ -30,12 +30,12 @@
       <tr>
         <th><%= f.label :'販売ステータス' %></th>
         <td><%= f.radio_button :sell_status, :true, checked: true %>
-        <%= f.label :'販売中' %></td>
-        <td><%= f.radio_button :sell_status, :false %>
+        <%= f.label :'販売中' %>
+        <%= f.radio_button :sell_status, :false %>
         <%= f.label :'販売停止中' %><br></td>
       </tr>
     </table>
-      <%= f.submit '変更を保存' %>
+      <%= f.submit '変更を保存', class:"btn btn-success" %>
     <% end %>
   </div>
     

@@ -1,6 +1,6 @@
 <div class="container">
   <h3>会員情報編集</h3>
-  <%= form_with model: @customer, url: { controller: "customer/customers", action: "update" }, method: :PATCH, local: true do |f| %>
+  <%= form_with model: @customer, url: customers_path, method: :PATCH, local: true do |f| %>
     <table class="address">
       <tr class="address">
         <td class="address"><%= f.label :"名前" %></td>

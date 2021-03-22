@@ -4,12 +4,16 @@ class Admins::OrderController < ApplicationController
 
   def index
     @orders = Order.page(params[:page]).per(PER)
-
+    if params[:customer] != nil
+      @orders_index = Order.where(customer_id: params[:customer][:id]).page(params[:page]).per(PER)
+      render 'admins/order/customer'
+    end
   end
 
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+    @order.postage = 800
   end
 
   def update
@@ -26,8 +30,13 @@ class Admins::OrderController < ApplicationController
   end
 
   private
+  
   def order_params
     params.require(:order).permit(:order_status)
   end
+  
+  # def customer_params
+  #   params.require(:customer).permit(:id)
+  # end
 
 end

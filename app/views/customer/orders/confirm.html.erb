@@ -3,13 +3,13 @@
   <div class="row">
 
     <div class="col-md-9">
-      <table class="table">
+      <table>
         <thead class="thead-lignt">
           <tr>
-            <th>商品名</th>
-            <th>単価(税込)</th>
-            <th>数量</th>
-            <th>小計</th>
+            <th class="table-danger">商品名</th>
+            <th class="table-danger">単価(税込)</th>
+            <th class="table-danger">数量</th>
+            <th class="table-danger">小計</th>
           </tr>
         </thead>
         <tbody>
@@ -21,13 +21,13 @@
                 <%= cart_item.item.name %>
               </td>
               <td class="text-left">
-                <%= cart_item.item.price %>
+                ￥<%= cart_item.item.price.to_s(:delimited) %>
               </td>
               <td class="text-left">
                 <%= cart_item.amount %>
               </td>
               <td class="text-left">
-                <%= cart_item.subtotal %>
+                ￥<%= cart_item.subtotal.to_s(:delimited) %>
               </td>
             </tr>
           <% @sum += cart_item.subtotal %>
@@ -37,19 +37,19 @@
     </div>
 
     <div class="col-md-3">
-     <table class="table">
+     <table>
           <tr>
-            <th>送料</th>
-            <td class="text-right">￥<%= @order.postage %></td>
+            <th class="table-danger">送料</th>
+            <td class="text-right">￥<%= @order.postage.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th>商品合計</th>
-            <td class="text-right">￥<%= @sum %></td>
+            <th class="table-danger">商品合計</th>
+            <td class="text-right">￥<%= @sum.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th>請求金額</th>
+            <th class="table-danger">請求金額</th>
             <% @order.total_price = @sum + @order.postage %>
-            <td class="text-right">￥<%= @order.total_price %></td>
+            <td class="text-right">￥<%= @order.total_price.to_s(:delimited) %></td>
           </tr>
       </table>
     </div>
