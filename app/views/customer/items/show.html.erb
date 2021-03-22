@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2 col-lg-8 offset-lg-2 d-flex">
-            <%= attachment_image_tag @item, :image %>
+            <%= attachment_image_tag @item, :image, fallback:'/assets/nagano.png' %>
             <div class="flex-column ml-5">
               <h2><%= @item.name %></h2>
               <p><%= @item.content %></p>
@@ -15,7 +15,7 @@
                   　<%= f.select :amount, [1, 2, 3, 4, 5], {prompt: '個数選択'}, class: 'sample mr-3' %>
                   　<%= f.submit "カートに入れる", class: "btn btn-success" %>
                   <% elsif @item.sell_status == false %>
-                    <p class="soldout">売切</p>
+                    <p class="soldout"><i class="fas fa-times"></i> sold out</p>
                   <% end %>
               <% end %>
             </div>

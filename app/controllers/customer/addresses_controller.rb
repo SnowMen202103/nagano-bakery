@@ -15,7 +15,7 @@ class Customer::AddressesController < ApplicationController
     if @address.save
     redirect_to request.referer
     else
-      @addresses = Address.page(params[:page]).per(PER)
+      @addresses = Address.where(customer_id:current_customer.id).page(params[:page]).per(PER)
       render 'index'
     end
   end
