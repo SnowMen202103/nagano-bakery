@@ -5,7 +5,7 @@ class Item < ApplicationRecord
     
     attachment :image
     
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
     validates :content, presence: true
     validates :price, presence: true
 end
