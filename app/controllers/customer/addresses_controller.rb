@@ -7,7 +7,6 @@ class Customer::AddressesController < ApplicationController
   def index
     @addresses = Address.where(customer_id:current_customer.id).page(params[:page]).per(PER)
     @address = Address.new
-    
   end
   
   def create

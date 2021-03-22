@@ -3,12 +3,12 @@
 
     <h2 class="col-md-10">会員一覧</h2>
     <table class="table mx-auto">
-      <thead class="thead-light">
+      <thead>
         <tr>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
+          <th class="table-danger">会員ID</th>
+          <th class="table-danger">氏名</th>
+          <th class="table-danger">メールアドレス</th>
+          <th class="table-danger">ステータス</th>
         </tr>
       </thead>
         <% @customers.each do |customer| %>

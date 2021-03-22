@@ -3,9 +3,8 @@
   <div class="row">
 
     <div class="col-md-7">
-      <table class="table">
-        <thead class="thead-lignt">
-          <p class="font-weight-bold">注文情報</p>
+      <p class="font-weight-bold">注文情報</p>
+      <table>
           <tr>
             <td style="width:20%", class="table-danger">注文日</th>
             <td style="width:80%"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
@@ -26,30 +25,31 @@
             <td class="table-danger">ステータス</th>
             <td><%= @order.order_status %></td>
           </tr>
-        </thead>
       </table>
     </div>
     
     <div class="col-md-5">
      <p class="font-weight-bold">請求情報</p>
-     <table class="table">
+     <table>
           <tr>
-            <td style="width:50%", class="table-danger">商品合計</th>
-            <td style="width:50%">￥<%= @order.total_price - @order.postage %></td>
+            <td style="width:50%" class="table-danger">商品合計</th>
+            <% @total = @order.total_price - @order.postage %>
+            <td style="width:50%">￥<%= @total.to_s(:delimited) %></td>
           </tr>
           <tr>
             <td class="table-danger">送料</th>
-            <td>￥<%= @order.postage %></td>
+            <td>￥<%= @order.postage.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th class="table-danger">請求金額</th>
-            <td>￥<%= @order.total_price %></td>
+            <td class="font-weight-bold">￥<%= @order.total_price.to_s(:delimited) %></td>
           </tr>
       </table>
     </div>
-    <div class="col-md-9">
+    
+    <div class="col-md-9 mt-5">
      <p class="font-weight-bold">注文内容</p>
-     <table class="table">
+     <table>
         <tbody>
           <tr class="table-danger">
             <td style="width:30%">商品</th>
@@ -61,9 +61,10 @@
           <% @order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.price %></td>
+            <td>￥<%= order_detail.item.price.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= order_detail.item.price * order_detail.amount %></td>
+            <% @subtotal = order_detail.item.price * order_detail.amount %>
+            <td>￥<%= @subtotal.to_s(:delimited) %></td>
           </tr>
           <%#<% @sum += cart_item.subtotal %>
           <% end %>

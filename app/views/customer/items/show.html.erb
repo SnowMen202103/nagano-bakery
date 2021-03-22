@@ -6,13 +6,13 @@
             <div class="flex-column ml-5">
               <h2><%= @item.name %></h2>
               <p><%= @item.content %></p>
-              <p>￥<%= @item.price %>(税込)</p>
+              <p>￥<%= @item.price.to_s(:delimited) %>(税込)</p>
             <div class="row">
               <%= form_with model: @cart_item, url:cart_items_path, method: :POST, local:true do |f| %>
                   <%= render "layouts/error_messages", resource: @cart_item %>
                   <%= f.hidden_field :item_id %>
                   <% if @item.sell_status == true %>
-                  　<%= f.select :amount, [1, 2, 3, 4, 5], {prompt: '個数選択'}, class: 'sample' %>
+                  　<%= f.select :amount, [1, 2, 3, 4, 5], {prompt: '個数選択'}, class: 'sample mr-3' %>
                   　<%= f.submit "カートに入れる", class: "btn btn-success" %>
                   <% elsif @item.sell_status == false %>
                     <p class="soldout">売切</p>

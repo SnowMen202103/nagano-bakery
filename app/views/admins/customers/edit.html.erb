@@ -1,50 +1,49 @@
 <div class="container">
   <div class="row">
-
-  <h3 class="col-md-10"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
-
-    <table class="table table-borderless">
-  <%= form_with model: @customer, url:admins_customer_path(@customer) , local:true do |f| %>
-    <%= render "layouts/error_messages", resource: @customer %>
-    <tr>
-      <th><%= f.label :'会員ID' %></th>
-      <td><%= @customer.id %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'氏名' %></th>
-      <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'フリガナ' %></th>
-      <td><%= f.text_field :ruby_last_name %> <%= f.text_field :ruby_first_name %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'郵便番号' %></th>
-      <td><%= f.text_field :postal_code %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'住所' %></th>
-      <td><%= f.text_field :address, size: "60" %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'電話番号' %></th>
-      <td><%= f.text_field :phone_number %><br>
-    </tr>
-    <tr>
-      <th><%= f.label :'メールアドレス' %></th>
-      <td><%= f.text_field :email %></td><br>
-    </tr>
-    <tr>
-      <th><%= f.label :is_deleted, '会員ステータス' %></th>
-      <td><%= f.radio_button :is_deleted, false, checked: true %>
-          <%= f.label :is_deleted, '有効', value: false %>
-          <%= f.radio_button :is_deleted, true %>
-          <%= f.label :is_deleted, '退会', value: true %></td><br>
-    </tr>
+  <h3><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
+  <%= render "layouts/error_messages", resource: @customer %>
+  <%= form_with model:@customer, url:admins_customer_path(@customer) , local:true do |f| %>
+    <table class="table-borderless">
+      <tr>
+        <th><%= f.label :'会員ID' %></th>
+        <td><%= @customer.id %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'氏名' %></th>
+        <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'フリガナ' %></th>
+        <td><%= f.text_field :ruby_last_name %> <%= f.text_field :ruby_first_name %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'郵便番号' %></th>
+        <td><%= f.text_field :postal_code %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'住所' %></th>
+        <td><%= f.text_field :address, size: "60" %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'電話番号' %></th>
+        <td><%= f.text_field :phone_number %><br>
+      </tr>
+      <tr>
+        <th><%= f.label :'メールアドレス' %></th>
+        <td><%= f.text_field :email %></td><br>
+      </tr>
+      <tr>
+        <th><%= f.label :is_deleted, '会員ステータス' %></th>
+        <td><%= f.radio_button :is_deleted, false, checked: true %>
+            <%= f.label :is_deleted, '有効', value: false %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :is_deleted, '退会', value: true %></td><br>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= f.submit '変更を保存', class:"btn btn-success" %></th>
+      </tr>
     </table>
-    
-    <%= f.submit '変更を保存' %>
   <% end %>
-  
   </div>
 </div>
