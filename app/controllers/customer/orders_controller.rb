@@ -1,6 +1,7 @@
 class Customer::OrdersController < ApplicationController
   before_action :order_params, only: [:cofirm]
-
+  before_action :authenticate_customer!
+  
   PER = 10
 
   def new
@@ -18,10 +19,14 @@ class Customer::OrdersController < ApplicationController
         @order.address = current_customer.address
         @order.name = current_customer.last_name + current_customer.first_name
       elsif params[:order][:addresses] == "addresses"
-        address = Address.find(params[:order][:address_id])
-        @order.postal_code = address.postal_code
-        @order.address = address.address
-        @order.name = address.name
+        if params[:order][:address_id] ==  ""
+          @addresses = Address.where(customer: current_customer)
+          render :new
+        elsif @address = Address.find(params[:order][:address_id])
+          @order.postal_code = @address.postal_code
+          @order.address = @address.address
+          @order.name = @address.name
+        end
       elsif params[:order][:addresses] == "new_address"
         @order.postal_code = params[:order][:postal_code]
         @order.address = params[:order][:address]
@@ -32,6 +37,7 @@ class Customer::OrdersController < ApplicationController
           render :new
         end
       end
+
   end
 
   def create
