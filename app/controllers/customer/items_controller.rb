@@ -3,7 +3,6 @@ class Customer::ItemsController < ApplicationController
   PER = 12
 
   def index
-
     @items  = Item.page(params[:page]).per(PER)
     @genres = Genre.all
   end

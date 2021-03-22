@@ -107,18 +107,19 @@ img {
   justify-content: center;
 }
 
-.pagination li a {          
-  border: none;   
+.pagination li a {
+  border: none;
   color: #696969;
 }
 
-.pagination a:active {     
+.pagination a:active {
   background: #93c9ff;
   border-radius: 50%;
 }
 
-.pagination li a:hover {        
+.pagination li a:hover {
   border-radius: 50%;
+}
 
 footer {
   // padding: 15px 4% 10px;
