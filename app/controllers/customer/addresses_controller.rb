@@ -1,9 +1,11 @@
 class Customer::AddressesController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :correct_address,only: [:edit]
   
   PER = 5
   
   def index
-    @addresses = Address.page(params[:page]).per(PER)
+    @addresses = Address.where(customer_id:current_customer.id).page(params[:page]).per(PER)
     @address = Address.new
     
   end
@@ -37,6 +39,13 @@ class Customer::AddressesController < ApplicationController
     address = Address.find(params[:id])
     address.destroy
     redirect_to request.referer
+  end
+  
+  def correct_address
+    @address = Address.find(params[:id])
+    unless @address.customer.id == current_customer.id
+      redirect_to addresses_path
+    end
   end
   
   private

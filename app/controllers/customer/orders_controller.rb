@@ -1,6 +1,7 @@
 class Customer::OrdersController < ApplicationController
   before_action :order_params, only: [:cofirm]
-
+  before_action :authenticate_customer!
+  
   PER = 10
 
   def new
@@ -36,6 +37,7 @@ class Customer::OrdersController < ApplicationController
           render :new
         end
       end
+
   end
 
   def create

@@ -8,8 +8,5 @@ class Order < ApplicationRecord
     validates :postal_code, format: {with: /\A\d{7}\z/ }
     validates :address, presence: true
     validates :name, presence: true
-    
-    validates :address_id, presence: true
 
-    
 end
