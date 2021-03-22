@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       end
     end
 
+    get 'items/search/:id' => 'items#search',as: 'item_search'
     get 'homes/about'
     get 'customers/goodbye'
     get 'searches/search'
