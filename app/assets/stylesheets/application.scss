@@ -89,11 +89,16 @@ img {
    height: 100px;
 }
 
-.topimage {
-   background-image: url(/assets/topcake3.jpg);
+.d-block {
    background-size: cover;
    background-position: center;
 }
+
+// .topimage {
+//    background-image: url(/assets/topcake3.jpg);
+//    background-size: cover;
+//    background-position: center;
+// }
 
 .yield {
    margin-top: 200px;

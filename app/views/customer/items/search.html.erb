@@ -2,7 +2,7 @@
   <div class="row justify-content-center mt-5">
     <div class="col-lg-10">
     	<div class="d-flex">
-				<h4 class="mr-5">ジャンル検索</h4>
+				<h4 class="mr-5"><i class="fas fa-candy-cane"></i> ジャンル検索</h4>
 			　<select name="select" onChange="location.href=value;" class="mb-3">
   				<option value="#">ジャンル選択</option>
   				<% @genres.each do |genre| %>
@@ -10,7 +10,7 @@
   				<% end %>
   			</select>
   		</div>
-		<div class="d-flex mb-3">
+		<div class="d-flex mb-3 mt-3">
 			<h3><%= @genre.name %>一覧</h3>
 			&nbsp;<h4>全<%= @genre.items.count %>件</h4>
 		</div>
