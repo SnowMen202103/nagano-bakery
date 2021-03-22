@@ -1,7 +1,7 @@
 class Admins::ItemsController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_admin!
   
-  PER = 10
+  PER = 8
   
   before_action :item_set, except:[:new, :create , :index]
   
