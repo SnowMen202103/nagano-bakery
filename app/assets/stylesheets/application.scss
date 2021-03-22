@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
  @import "bootstrap";
 
 // リセットCSS
@@ -26,7 +27,6 @@ body {
    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
    background-color: #FFDDFF;
 }
-//
 
 header {
    z-index: 30;
