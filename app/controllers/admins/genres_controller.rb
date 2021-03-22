@@ -1,6 +1,7 @@
 class Admins::GenresController < ApplicationController
+  before_action :authenticate_customer!
   
-  PER = 2
+  PER = 6
   
   def index
     @genre = Genre.new
@@ -12,7 +13,7 @@ class Admins::GenresController < ApplicationController
     if @genre.save
       redirect_back(fallback_location: root_path)
     else
-      @genres = Genre.all
+      @genres = Genre.page(params[:page]).per(PER)
       render 'index'
     end
 

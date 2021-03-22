@@ -1,6 +1,7 @@
 <div class="container">
   <h3>配送先登録/一覧</h3>
     <%= form_with model: [@customer, @address], local:true do |f| %>
+      <%= render "layouts/error_messages", resource: @address %>
       <table class="address">
         <tr class="address">
           <td class="address"><%= f.label :"郵便番号(ハイフンなし)" %></td>
@@ -44,6 +45,6 @@
       <% end %>
   </table>
   
-  <%= paginate @addresses %>
+    <%= paginate @addresses %>
   
 </div>
