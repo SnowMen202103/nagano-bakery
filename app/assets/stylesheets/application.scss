@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 // リセットCSS
@@ -26,7 +27,6 @@ body {
    font-family: 'Reggae One', cursive;
    background-color: #FFDDFF;
 }
-//
 
 header {
    z-index: 30;
