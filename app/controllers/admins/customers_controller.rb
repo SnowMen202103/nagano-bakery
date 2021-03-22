@@ -1,5 +1,5 @@
 class Admins::CustomersController < ApplicationController
-  
+  before_action :authenticate_customer!
   before_action :customer_set, only:[:show, :edit, :update]
   
   PER = 10

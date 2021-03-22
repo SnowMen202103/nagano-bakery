@@ -1,4 +1,5 @@
 class Customer::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @cart_item = CartItem.where(customer_id:current_customer.id)
@@ -6,12 +7,13 @@ class Customer::CartItemsController < ApplicationController
 
   def create
     if customer_signed_in?
-      @cart_items = CartItem.new(cart_item_params)
-      @cart_items.customer_id = current_customer.id
-      if @cart_items.save
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.customer_id = current_customer.id
+      if @cart_item.save
         redirect_to cart_items_path
       else
-        redirect_to request.referer
+        @item = Item.find(@cart_item.item_id)
+        render 'customer/items/show'
       end
     else
       redirect_to new_customer_session_path

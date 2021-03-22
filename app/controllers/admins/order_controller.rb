@@ -1,4 +1,5 @@
 class Admins::OrderController < ApplicationController
+  before_action :authenticate_customer!
   
   PER = 10
 
