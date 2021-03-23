@@ -3,11 +3,12 @@ class Customer::CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.where(customer_id:current_customer.id)
+
   end
 
   def create
     if customer_signed_in?
-      @cart_item = CartItem.new(cart_item_params)
+      @cart_item             = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
       if @cart_item.save
         redirect_to cart_items_path
