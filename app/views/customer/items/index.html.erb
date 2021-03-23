@@ -24,7 +24,7 @@
                   <% end %>
                   <p class="mt-3 mb-3"><%= item.name %></p>
                   <% if item.sell_status == true %>
-                    <p class="mt-3 mb-3">￥<%= item.price.to_s(:delimited)  %></p>
+                    <p class="mt-3 mb-3">￥<%= item.add_tax_price.to_s(:delimited)  %></p>
                   <% elsif item.sell_status == false %>
                     <p class="soldout"><i class="fas fa-times"></i> sold out</p>
                   <% end %>

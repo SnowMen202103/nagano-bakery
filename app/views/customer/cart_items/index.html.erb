@@ -16,7 +16,7 @@
       <% @cart_item.each do |cart_item| %>
       <tr>
         <td><%= cart_item.item.name %></td>
-        <td>￥<%= cart_item.item.price.to_s(:delimited) %></td>
+        <td>￥<%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
         <td>
         <%= form_with model: cart_item, url:cart_item_path(cart_item), local:true do |f| %>
           <%= f.select :amount, [1, 2, 3, 4, 5], {include_blank: cart_item.amount } %>
@@ -46,7 +46,7 @@
   <% else %>
   <div class="d-flex flex-column mx-auto">
     <h2>お客様のカートに商品はありません。</h2>
-     <p class="flex mx-auto mt-2">お買い物を続けるには<%= link_to "コチラ", items_path %>を押してください。</p>
+     <p class="flex mx-auto mt-2">お買い物を続ける場合は<%= link_to "コチラ", items_path %>を押してください。</p>
   </div>
   <% end %>
 </div>
