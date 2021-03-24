@@ -22,7 +22,7 @@
 							<%= attachment_image_tag item, :image, fallback:'/assets/nagano.png' %>
 						<% end %>
 						<p class="mt-3 mb-3"><%= item.name %></p>
-						<p class="mt-3 mb-3">¥<%= item.price %></p>
+						<p class="mt-3 mb-3">¥<%= item.add_tax_price.to_s(:delimited) %></p>
 					</div>
 				<% end %>
 			</div>
