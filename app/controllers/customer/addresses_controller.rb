@@ -6,11 +6,11 @@ class Customer::AddressesController < ApplicationController
   
   def index
     @addresses = Address.where(customer_id:current_customer.id).page(params[:page]).per(PER)
-    @address = Address.new
+    @address   = Address.new
   end
   
   def create
-    @address = Address.new(address_params)
+    @address          = Address.new(address_params)
     @address.customer = current_customer
     if @address.save
     redirect_to request.referer
