@@ -25,7 +25,7 @@ class Customer::CustomersController < ApplicationController
   end
   
   def out
-    customer = current_customer
+    customer            = current_customer
     customer.is_deleted = true
     customer.save
     reset_session

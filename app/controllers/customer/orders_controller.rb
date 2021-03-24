@@ -5,33 +5,33 @@ class Customer::OrdersController < ApplicationController
   PER = 10
 
   def new
-    @order = Order.new
+    @order     = Order.new
     @addresses = Address.where(customer_id: current_customer.id)
   end
 
   def confirm
-    @cart_items = CartItem.where(customer_id:current_customer.id)
-    @order = Order.new(order_params)
+    @cart_items        = CartItem.where(customer_id:current_customer.id)
+    @order             = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.postage = 800
+    @order.postage     = 800
       if params[:order][:addresses] == "my_address"
         @order.postal_code = current_customer.postal_code
-        @order.address = current_customer.address
-        @order.name = current_customer.last_name + current_customer.first_name
+        @order.address     = current_customer.address
+        @order.name        = current_customer.last_name + current_customer.first_name
       elsif params[:order][:addresses] == "addresses"
         if params[:order][:address_id] ==  ""
           @addresses = Address.where(customer: current_customer)
           render :new
         elsif @address = Address.find(params[:order][:address_id])
           @order.postal_code = @address.postal_code
-          @order.address = @address.address
-          @order.name = @address.name
+          @order.address     = @address.address
+          @order.name        = @address.name
         end
       elsif params[:order][:addresses] == "new_address"
         @order.postal_code = params[:order][:postal_code]
-        @order.address = params[:order][:address]
-        @order.name = params[:order][:name]
-        @ship = "1"
+        @order.address     = params[:order][:address]
+        @order.name        = params[:order][:name]
+        @ship              = "1"
         unless @order.valid? == true
           @addresses = Address.where(customer: current_customer)
           render :new
@@ -66,7 +66,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def show
-    @order = current_customer.orders.find(params[:id])
+    @order         = current_customer.orders.find(params[:id])
     @order_details = @order.order_details.page(params[:page]).per(5)
     @order.postage = 800
   end
